@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Noto+Sans+Devanagari:wght@300;400;700&family=Poppins:wght@300;400;700&display=swap');
+
+:root {
+  /* Colors */
+  --color-canvas: #050505;
+  --color-surface-card: #121212;
+  --color-surface-elevated: #1e1e1e;
+  --color-surface-soft: #0d0d0d;
+  --color-primary: #ffffff;
+  --color-ink: #ffffff;
+  --color-body: #bbbbbb;
+  --color-body-strong: #e6e6e6;
+  --color-muted: #7e7e7e;
+  --color-hairline: #262626;
+  --color-hairline-strong: #3c3c3c;
+  
+  /* Tricolor motorsport accents */
+  --color-m-blue-light: #0066b1;
+  --color-m-blue-dark: #1c69d4;
+  --color-m-red: #e22718;
+  
+  /* Font Families */
+  --font-display: 'Inter', sans-serif;
+  --font-body: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+  
+  /* Spacing */
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+  --spacing-xxl: 64px;
+  --spacing-section: 96px;
+  
+  /* Transitions */
+  --transition-speed: 0.25s;
+  --transition-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Reset and Core Layout */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-canvas);
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+main {
+  flex-grow: 1;
+}
+
+/* Typography Utility Classes */
+.display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 8vw, 80px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.display-md {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 4vw, 40px);
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.display-sm {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 3vw, 32px);
+  font-weight: 700;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.title-lg {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.title-md {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.title-sm {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.label-uppercase {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.body-md {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-body);
+}
+
+.body-sm {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-body);
+}
+
+.caption {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+  color: var(--color-muted);
+}
+
+/* Custom Components */
+
+/* M Stripe Divider */
+.m-stripe {
+  height: 4px;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.m-stripe span {
+  height: 100%;
+}
+.m-stripe .blue-light {
+  width: 33.33%;
+  background-color: var(--color-m-blue-light);
+}
+.m-stripe .blue-dark {
+  width: 33.33%;
+  background-color: var(--color-m-blue-dark);
+}
+.m-stripe .red {
+  width: 33.34%;
+  background-color: var(--color-m-red);
+}
+
+/* Flat Precision Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-canvas);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 32px;
+  min-height: 48px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) var(--transition-easing),
+              color var(--transition-speed) var(--transition-easing);
+  border-radius: 0px;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-canvas);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-hairline-strong);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 32px;
+  min-height: 48px;
+  cursor: pointer;
+  transition: border-color var(--transition-speed) var(--transition-easing),
+              background-color var(--transition-speed) var(--transition-easing);
+  border-radius: 0px;
+}
+
+.btn-outline:hover {
+  border-color: var(--color-primary);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  background-color: var(--color-surface-card);
+  color: var(--color-primary);
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) var(--transition-easing);
+}
+
+.btn-icon:hover {
+  background-color: var(--color-surface-elevated);
+}
+
+.text-link {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.text-link::after {
+  content: "→";
+  transition: transform var(--transition-speed) var(--transition-easing);
+}
+
+.text-link:hover::after {
+  transform: translateX(4px);
+}
+
+/* Layout Elements */
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  width: 100%;
+}
+
+.section-padding {
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+}
+
+/* Hairline borders */
+.border-b {
+  border-bottom: 1px solid var(--color-hairline);
+}
+
+.border-t {
+  border-top: 1px solid var(--color-hairline);
+}
+
+/* Grid systems */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+}
+
+@media (max-width: 1024px) {
+  .grid-4,
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-4, .grid-3, .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .section-padding {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+  }
+}
+
+/* Custom cards */
+.photo-card {
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-hairline);
+  padding: var(--spacing-lg);
+  border-radius: 0px;
+  transition: border-color var(--transition-speed) var(--transition-easing);
+}
+
+.photo-card:hover {
+  border-color: var(--color-hairline-strong);
+}
+
+.photo-card img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  margin-bottom: var(--spacing-md);
+  border-radius: 0px;
+  background-color: #0d0d0d;
+}
+
+.photo-card img[src$=".png"] {
+  object-fit: contain;
+  padding: 4px;
+}

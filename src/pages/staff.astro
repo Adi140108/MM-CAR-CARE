@@ -1,0 +1,286 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+
+const title = "Our Staff | Expert Mechanics & Certified Technicians";
+const description = "MM Car Care के हमारे एक्सपर्ट मैकेनिकल, इलेक्ट्रिकल, एसी, डेंटिंग-पेंटिंग और वाशिंग स्टाफ से मिलें। बिना किसी समझौते के 100% गुणवत्तापूर्ण कार रिपेयर।";
+
+const staffRoles = [
+  {
+    role: "WORKSHOP OWNER",
+    hindiRole: "राजपाल सिंह (ओनर)",
+    icon: "fa-solid fa-user-tie",
+    description: "राजपाल सिंह जी के कुशल नेतृत्व और मार्गदर्शन में वर्कशॉप संचालित है। वे ग्राहकों को सर्वोत्तम सेवा, पारदर्शिता और गुणवत्ता सुनिश्चित करने के लिए हर रिपेयर कार्य की व्यक्तिगत निगरानी करते हैं।",
+    waService: "Owner Consultation (ओनर राजपाल सिंह से संपर्क)"
+  },
+  {
+    role: "EXPERT MECHANIC",
+    hindiRole: "कुशल मैकेनिक",
+    icon: "fa-solid fa-screwdriver-wrench",
+    description: "इंजन ओवरहालिंग, गियरबॉक्स रिपेयर, सस्पेंशन ट्यूनिंग और सामान्य मैकेनिकल सर्विसिंग में कुशल। हर यांत्रिक खराबी का 100% सटीक समाधान।",
+    waService: "Expert Mechanic (कुशल मैकेनिक)"
+  },
+  {
+    role: "CERTIFIED ELECTRICIAN",
+    hindiRole: "प्रमाणित इलेक्ट्रीशियन",
+    icon: "fa-solid fa-bolt-lightning",
+    description: "कम्प्यूटरीकृत OBD-II डायग्नोस्टिक स्कैनिंग, कार वायरिंग शॉर्ट-सर्किट समाधान, सेंसर टेस्टिंग और इलेक्ट्रॉनिक एरर सुधारने के विशेषज्ञ।",
+    waService: "Certified Electrician (प्रमाणित इलेक्ट्रीशियन)"
+  },
+  {
+    role: "AC TECHNICIAN",
+    hindiRole: "एसी तकनीशियन",
+    icon: "fa-solid fa-snowflake",
+    description: "एसी गैस रिसाव जांच, कंप्रेसर रिपेयर, कंडेनसर क्लीनिंग और केबिन कूलिंग रिस्टोरेशन के प्रमाणित एक्सपर्ट।",
+    waService: "AC Technician (एसी तकनीशियन)"
+  },
+  {
+    role: "DENTER & PAINTER",
+    hindiRole: "डेंटर और पेंटर",
+    icon: "fa-solid fa-spray-can-sparkles",
+    description: "कार बॉडी पैनल अलाइनमेंट, डेंट निकालना, स्क्रैच पॉलिशिंग और सटीक कलर-मैचिंग डस्ट-फ्री स्प्रे पेंटिंग में माहिर।",
+    waService: "Denter Painter (डेंटर पेंटर)"
+  },
+  {
+    role: "CLEANING STAFF",
+    hindiRole: "क्लीनिंग स्टाफ",
+    icon: "fa-solid fa-droplet",
+    description: "एक्सटीरियर बॉडी फोम वाशिंग, वैक्यूमिंग, अंडरबॉडी सफाई और केबिन डीप सैनिटाइजेशन सेवाओं के विशेषज्ञ।",
+    waService: "Cleaning Staff (क्लीनिंग स्टाफ)"
+  }
+];
+---
+
+<Layout title={title} description={description}>
+  <Navigation />
+
+  <main>
+    <!-- Page Title Header -->
+    <section class="page-header">
+      <div class="container header-inner">
+        <div class="m-stripe page-stripe">
+          <span class="blue-light"></span>
+          <span class="blue-dark"></span>
+          <span class="red"></span>
+        </div>
+        <span class="label-uppercase tracking-tag" lang="en">THE EXPERT TEAM</span>
+        <h1 class="display-lg page-title" lang="en">OUR STAFF</h1>
+        <p class="page-subtitle">
+          हमारी वर्कशॉप में कार्यरत समर्पित और प्रमाणित विशेषज्ञों की टीम। बिना किसी समझौते के उच्च स्तरीय सर्विस।
+        </p>
+      </div>
+    </section>
+
+    <!-- Staff Roles Cards Grid Section -->
+    <section class="staff-grid-section section-padding">
+      <div class="container">
+        <div class="staff-grid">
+          {staffRoles.map(role => (
+            <div class="staff-card border-b">
+              <div class="staff-card-stripe">
+                <span class="blue-light"></span>
+                <span class="blue-dark"></span>
+                <span class="red"></span>
+              </div>
+              <div class="staff-info">
+                <div class="role-icon-wrapper">
+                  <i class={role.icon}></i>
+                </div>
+                <span class="label-uppercase staff-role" lang="en">{role.role}</span>
+                <h2 class="title-lg staff-name">{role.hindiRole}</h2>
+                
+                <p class="body-sm staff-desc">{role.description}</p>
+                
+                {role.role !== "WORKSHOP OWNER" && (
+                  <a 
+                    href={`https://wa.me/919814269633?text=नमस्ते%20MM%20Car%20Care!%20मुझे%20अपनी%20कार%20के%20लिए%20${encodeURIComponent(role.waService)}%20सेवा%20की%20बुकिंग%20करनी%20है।`} 
+                    class="btn-outline staff-consult-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    lang="en"
+                  >
+                    BOOK THIS SERVICE
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Operational Standards / Quality Badges -->
+    <section class="standards-section section-padding border-t border-b">
+      <div class="container">
+        <div class="section-header">
+          <span class="label-uppercase section-tag" lang="en">STANDARDS</span>
+          <h2 class="display-md section-title" lang="en">PROFESSIONALLY CERTIFIED</h2>
+          <p class="body-md text-center max-w-600">
+            हमारा पूरा स्टाफ कार सुरक्षा मानकों, आधुनिक डायग्नोस्टिक टूल्स और सस्पेंशन अलाइनमेंट के बारे में प्रमाणित है। हम लगातार ट्रेनिंग सेशन आयोजित करते हैं ताकि तकनीक में बदलावों के साथ हमारी टीम अपडेट रहे।
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+</Layout>
+
+<style>
+  /* Header styling */
+  .page-header {
+    background-color: var(--color-surface-soft);
+    padding: var(--spacing-xxl) 0;
+    border-bottom: 1px solid var(--color-hairline);
+  }
+
+  .header-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .page-stripe {
+    width: 80px;
+    margin: 0 auto var(--spacing-md);
+  }
+
+  .tracking-tag {
+    color: var(--color-m-red);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .page-title {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .page-subtitle {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-body);
+  }
+
+  /* Staff Grid & Card styling */
+  .staff-grid-section {
+    background-color: var(--color-canvas);
+  }
+
+  .staff-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+  }
+
+  .staff-card {
+    flex: 1 1 300px;
+    max-width: 380px;
+    background-color: var(--color-surface-card);
+    border: 1px solid var(--color-hairline);
+    display: flex;
+    flex-direction: column;
+    border-radius: 0px;
+    overflow: hidden;
+    transition: border-color var(--transition-speed);
+  }
+
+  .staff-card:hover {
+    border-color: var(--color-hairline-strong);
+  }
+
+  .staff-card-stripe {
+    width: 100%;
+    height: 4px;
+    display: flex;
+  }
+  .staff-card-stripe span { height: 100%; }
+  .staff-card-stripe .blue-light { width: 33%; background-color: var(--color-m-blue-light); }
+  .staff-card-stripe .blue-dark { width: 33%; background-color: var(--color-m-blue-dark); }
+  .staff-card-stripe .red { width: 34%; background-color: var(--color-m-red); }
+
+  .staff-info {
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    flex-grow: 1;
+    align-items: flex-start;
+  }
+
+  .role-icon-wrapper {
+    background-color: var(--color-surface-soft);
+    border: 1px solid var(--color-hairline);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+    border-radius: 0px;
+  }
+
+  .staff-role {
+    color: var(--color-m-blue-dark);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+
+  .staff-name {
+    color: var(--color-primary);
+    font-family: var(--font-body);
+    font-weight: 700;
+    margin-top: -5px;
+  }
+
+  .staff-desc {
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-body);
+  }
+
+  .staff-consult-btn {
+    margin-top: auto;
+    width: 100%;
+    font-size: 12px;
+    padding: 14px;
+    min-height: auto;
+    text-align: center;
+  }
+
+  /* Standards */
+  .standards-section {
+    background-color: var(--color-surface-soft);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .section-tag {
+    color: var(--color-m-blue-dark);
+    display: inline-block;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .section-title {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .max-w-600 {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.7;
+  }
+</style>

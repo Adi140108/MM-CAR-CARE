@@ -1,0 +1,806 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import SocialPreview from '../components/SocialPreview.astro';
+
+// Head details for local SEO
+const title = "MM Car Care | Premium Car Repair & Diagnostics Services New Delhi";
+const description = "MM Car Care में पाइए बेहतरीन कार सर्विसिंग, फ़ोम वॉश, एसी सर्विस, कंप्यूटर डायग्नोस्टिक्स, व्हील बैलेंसिंग और अलाइनमेंट। आज ही बुकिंग करें!";
+---
+
+<Layout title={title} description={description}>
+  <!-- Top Navigation Header -->
+  <Navigation />
+
+  <main>
+    <!-- Hero Photo Band Section -->
+    <section class="hero-section">
+      <div class="hero-bg-overlay"></div>
+      <div class="container hero-content">
+        <div class="m-stripe mini-hero-stripe">
+          <span class="blue-light"></span>
+          <span class="blue-dark"></span>
+          <span class="red"></span>
+        </div>
+        <span class="label-uppercase tracking-tag" lang="en">ESTABLISHED IN 2016</span>
+        <h1 class="display-xl hero-title" lang="en">THE ULTIMATE<br>CAR CARE</h1>
+        <p class="hero-subtitle">
+          हम आपकी कार को कार सर्विस, फ़ोम वॉश, एसी सर्विसिंग, कंप्यूटर डायग्नोस्टिक्स, व्हील बैलेंसिंग और अलाइनमेंट सेवाएं प्रदान करते हैं। हमारे निवाड़ी (मध्य प्रदेश) स्थित गैराज में आज ही आएं।
+        </p>
+        <div class="hero-ctas">
+          <a href="/services" class="btn-primary" lang="en">EXPLORE SERVICES</a>
+          <a href="/contact" class="btn-outline" lang="en">BOOK AN APPOINTMENT</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specs / Performance Metrics Section -->
+    <section class="specs-band border-b">
+      <div class="container specs-grid">
+        <div class="spec-item">
+          <span class="display-md spec-value" lang="en">10+ YEARS</span>
+          <span class="label-uppercase spec-label">उत्कृष्ट अनुभव</span>
+        </div>
+        <div class="spec-item">
+          <span class="display-md spec-value" lang="en">5,000+</span>
+          <span class="label-uppercase spec-label">संतुष्ट ग्राहक</span>
+        </div>
+        <div class="spec-item">
+          <span class="display-md spec-value" lang="en">100%</span>
+          <span class="label-uppercase spec-label">गुणवत्ता की गारंटी</span>
+        </div>
+        <div class="spec-item">
+          <span class="display-md spec-value" lang="en">EXPERT</span>
+          <span class="label-uppercase spec-label">प्रमाणित मैकेनिक</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Overview Section -->
+    <section class="services-section section-padding border-b">
+      <div class="container">
+        <div class="section-header">
+          <span class="label-uppercase section-tag" lang="en">WHAT WE DO</span>
+          <h2 class="display-lg section-title" lang="en">OUR EXPERTISE</h2>
+          <p class="section-intro">
+            हम आपकी कार की हर ज़रूरत को पूरा करने के लिए उन्नत तकनीकों और प्रमाणित पार्ट्स का उपयोग करते हैं।
+          </p>
+        </div>
+
+        <div class="grid-4 services-grid">
+          <!-- Card 1: Car Service -->
+          <div class="photo-card">
+            <img src="/car-service.png" alt="Engine Car Service" />
+            <span class="label-uppercase card-tag" lang="en">MAINTENANCE & TUNE-UP</span>
+            <h3 class="title-lg card-heading" lang="en">CAR SERVICE</h3>
+            <p class="body-sm card-text">
+              इंजन ऑयल चेंज, फिल्टर रिप्लेसमेंट और जनरल सेफ्टी चेकअप द्वारा अपनी कार की परफॉर्मेंस और माइलेज को बेहतर बनाएं।
+            </p>
+            <a href="/services#maintenance" class="text-link" lang="en">EXPLORE SERVICE</a>
+          </div>
+
+          <!-- Card 2: Foam Wash -->
+          <div class="photo-card">
+            <img src="/foam-wash.png" alt="Premium Foam Wash" />
+            <span class="label-uppercase card-tag" lang="en">DEEP CLEANING</span>
+            <h3 class="title-lg card-heading" lang="en">FOAM WASH</h3>
+            <p class="body-sm card-text">
+              हाई-प्रेशर फ़ोम स्प्रे, इंटीरियर वैक्यूमिंग और प्रीमियम पॉलिशिंग से अपनी गाड़ी को रखें बिल्कुल साफ और चमकदार।
+            </p>
+            <a href="/services#foamwash" class="text-link" lang="en">EXPLORE FOAM WASH</a>
+          </div>
+
+          <!-- Card 3: AC Service -->
+          <div class="photo-card">
+            <img src="/ac-service.png" alt="AC Services" />
+            <span class="label-uppercase card-tag" lang="en">COOLING & CLIMATE</span>
+            <h3 class="title-lg card-heading" lang="en">AC SERVICES</h3>
+            <p class="body-sm card-text">
+              एसी गैस लीक टेस्टिंग, कंडेंसर क्लीनिंग और रेफ्रिजरेंट गैस रीफिल द्वारा भीषण गर्मी में भी ठंडा और सुहावना सफर।
+            </p>
+            <a href="/services#ac" class="text-link" lang="en">EXPLORE AC SERVICE</a>
+          </div>
+
+          <!-- Card 4: Diagnostics -->
+          <div class="photo-card">
+            <img src="/diagnostics.png" alt="System Diagnosis" />
+            <span class="label-uppercase card-tag" lang="en">OBD SCANNING & SENSORS</span>
+            <h3 class="title-lg card-heading" lang="en">SYSTEM DIAGNOSIS</h3>
+            <p class="body-sm card-text">
+              अत्याधुनिक कंप्यूटरीकृत स्कैनर्स द्वारा डैशबोर्ड चेक इंजन लाइट, वायरिंग फॉल्ट और सेंसर एरर का सटीक समाधान।
+            </p>
+            <a href="/services#diagnostics" class="text-link" lang="en">EXPLORE DIAGNOSTICS</a>
+          </div>
+
+          <!-- Card 5: Wheel Balancing -->
+          <div class="photo-card">
+            <img src="/wheel-balancing.png" alt="Tires & Wheel Balancing" />
+            <span class="label-uppercase card-tag" lang="en">TYRE WEIGHT BALANCING</span>
+            <h3 class="title-lg card-heading" lang="en">WHEEL BALANCING</h3>
+            <p class="body-sm card-text">
+              कम्प्यूटरीकृत व्हील बैलेंसिंग से टायर का असमान घिसना रोकें और तेज स्पीड पर स्टीयरिंग वाइब्रेशन खत्म करें।
+            </p>
+            <a href="/services#wheel-balancing" class="text-link" lang="en">EXPLORE BALANCING</a>
+          </div>
+
+          <!-- Card 6: Wheel Alignment -->
+          <div class="photo-card">
+            <img src="/wheel-alignment.png" alt="3D Wheel Alignment" />
+            <span class="label-uppercase card-tag" lang="en">STEERING CALIBRATION</span>
+            <h3 class="title-lg card-heading" lang="en">WHEEL ALIGNMENT</h3>
+            <p class="body-sm card-text">
+              3D कम्प्यूटरीकृत व्हील अलाइनमेंट से कार का वन-साइड खिंचाव दूर करें और हाईवे पर बिल्कुल सीधा व नियंत्रित ड्राइव पाएं।
+            </p>
+            <a href="/services#wheel-alignment" class="text-link" lang="en">EXPLORE ALIGNMENT</a>
+          </div>
+
+          <!-- Card 7: Tyre Change -->
+          <div class="photo-card">
+            <img src="/tyre-change.png" alt="Tyre Change Service" />
+            <span class="label-uppercase card-tag" lang="en">TYRE CHANGE & FITTING</span>
+            <h3 class="title-lg card-heading" lang="en">TYRE CHANGE</h3>
+            <p class="body-sm card-text">
+              घिसे हुए टायरों को हटाकर नए प्रीमियम ब्रांडेड टायरों की सुरक्षित फिटिंग, माउंटिंग और वाल्व रिप्लेसमेंट सर्विस।
+            </p>
+            <a href="/services#tyre-change" class="text-link" lang="en">EXPLORE TYRE CHANGE</a>
+          </div>
+
+          <!-- Card 8: Jump Start -->
+          <div class="photo-card">
+            <img src="/jump-start.png" alt="Jump Start Service" />
+            <span class="label-uppercase card-tag" lang="en">BATTERY EMERGENCY</span>
+            <h3 class="title-lg card-heading" lang="en">JUMP START</h3>
+            <p class="body-sm card-text">
+              कार की बैटरी डाउन होने या स्टार्ट न होने की स्थिति में सेफ बूस्टर यूनिट और एक्सपर्ट मैकेनिक द्वारा क्विक असिस्टेंस।
+            </p>
+            <a href="/services#jumpstart" class="text-link" lang="en">EXPLORE JUMP START</a>
+          </div>
+
+          <!-- Card 9: Body Repair & Painting -->
+          <div class="photo-card">
+            <img src="/body-repair.png" alt="Body Repair & Painting" />
+            <span class="label-uppercase card-tag" lang="en">DENTING & PAINTING</span>
+            <h3 class="title-lg card-heading" lang="en">BODY REPAIR</h3>
+            <p class="body-sm card-text">
+              ऑटो-ग्रेड कोटिंग, पेंटलेस डेंट रिमूवल (PDR) और सटीक कलर मैचिंग तकनीक द्वारा गाड़ी के डेंट और स्क्रैच का परफेक्शन के साथ इलाज।
+            </p>
+            <a href="/services#bodypaint" class="text-link" lang="en">EXPLORE BODY REPAIR</a>
+          </div>
+
+          <!-- Card 10: Air Fill & Greasing -->
+          <div class="photo-card">
+            <img src="/air-fill-greasing.png" alt="Air Fill & Greasing" />
+            <span class="label-uppercase card-tag" lang="en">TYRE AIR & LUBRICATION</span>
+            <h3 class="title-lg card-heading" lang="en">AIR FILL & GREASING</h3>
+            <p class="body-sm card-text">
+              सटीक प्रेशर टायर हवा चेकिंग, सस्पेंशन ग्रीसिंग और मूविंग पार्ट्स लुब्रिकेशन द्वारा स्मूद व सुरक्षित ड्राइव पाएं।
+            </p>
+            <a href="/services#air-greasing" class="text-link" lang="en">EXPLORE AIR & GREASING</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us / Value Proposition Section (Dark soft background) -->
+    <section class="value-prop-section section-padding border-b">
+      <div class="container prop-container">
+        <div class="prop-text">
+          <span class="label-uppercase prop-tag" lang="en">THE PRECISE STANDARDS</span>
+          <h2 class="display-lg prop-title" lang="en">ENGINEERED TO PERFECTION</h2>
+          <p class="body-md prop-desc">
+            हम MM Car Care में मानते हैं कि हर कार विशेष ध्यान की हकदार है। हम कार निर्माताओं के दिशा-निर्देशों के अनुसार काम करते हैं और अत्याधुनिक मशीनों का उपयोग करते हैं।
+          </p>
+          <ul class="prop-list">
+            <li>
+              <span class="icon"><i class="fa-solid fa-microchip"></i></span>
+              <div>
+                <strong lang="en">COMPUTER DIAGNOSTICS</strong>
+                <p class="body-sm">हम नवीनतम स्कैनर्स का उपयोग कर इंजन की समस्याओं का तुरंत पता लगाते हैं।</p>
+              </div>
+            </li>
+            <li>
+              <span class="icon"><i class="fa-solid fa-shield-halved"></i></span>
+              <div>
+                <strong lang="en">GENUINE PARTS ONLY</strong>
+                <p class="body-sm">हम केवल 100% ओरिजिनल ओईएम (OEM) और ब्रांडेड पार्ट्स का उपयोग करते हैं।</p>
+              </div>
+            </li>
+            <li>
+              <span class="icon"><i class="fa-solid fa-certificate"></i></span>
+              <div>
+                <strong lang="en">WARRANTY BACKED WORK</strong>
+                <p class="body-sm">हमारे द्वारा किए गए अधिकांश मैकेनिकल कार्यों पर वारंटी प्रदान की जाती है।</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="prop-image-area">
+          <img src="https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&w=800&q=80" alt="Precision Mechanics" />
+          <div class="corner-stripe"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section section-padding border-b">
+      <div class="container">
+        <div class="section-header">
+          <div class="tag-wrapper">
+            <span class="label-uppercase section-tag" lang="en">SERVICE ARCHIVE</span>
+            <div class="header-stripe"></div>
+          </div>
+          <h2 class="display-lg section-title" lang="en">CLIENT LOGS & FEEDBACK</h2>
+          <p class="section-intro">
+            MM Car Care पर भरोसा करने वाले हमारे विशेषाधिकार प्राप्त ग्राहकों के वास्तविक अनुभव।
+          </p>
+        </div>
+
+        <div class="grid-3 testimonials-grid">
+          <!-- Card 1 -->
+          <div class="testimonial-card border-accent-blue-light">
+            <div class="card-meta">
+              <span class="job-id" lang="en">LOG #8402</span>
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            
+            <div class="quote-wrapper">
+              <span class="quote-icon" lang="en">“</span>
+              <p class="testimonial-text">
+                "यहाँ अपनी स्विफ्ट की सर्विसिंग कराने के बाद गाड़ी की परफॉर्मेंस काफी बढ़ गई है। इंजन की आवाज बिल्कुल कम हो गई है और माइलेज भी बेहतर मिल रहा है। उचित रेट और समय पर डिलीवरी के लिए धन्यवाद!"
+              </p>
+            </div>
+            
+            <div class="specs-grid-mini">
+              <div class="spec-cell-mini">
+                <span class="spec-label-mini" lang="en">CLIENT</span>
+                <span class="spec-val-mini">राजीव शर्मा</span>
+              </div>
+              <div class="spec-cell-mini">
+                <span class="spec-label-mini" lang="en">VEHICLE DIVISION</span>
+                <span class="spec-val-mini" lang="en">MARUTI SWIFT</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="testimonial-card border-accent-blue-dark">
+            <div class="card-meta">
+              <span class="job-id" lang="en">LOG #0843</span>
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            
+            <div class="quote-wrapper">
+              <span class="quote-icon" lang="en">“</span>
+              <p class="testimonial-text">
+                "इंजन में कुछ आवाज़ आ रही थी जिसे बाकी वर्कशॉप समझ नहीं पा रहे थे। यहाँ कंप्यूटर डायग्नोस्टिक्स से तुरंत खराबी का पता लगा और परफेक्ट रिपेयरिंग हुई।"
+              </p>
+            </div>
+            
+            <div class="specs-grid-mini">
+              <div class="spec-cell-mini">
+                <span class="spec-label-mini" lang="en">CLIENT</span>
+                <span class="spec-val-mini">अमित वर्मा</span>
+              </div>
+              <div class="spec-cell-mini">
+                <span class="spec-label-mini" lang="en">VEHICLE DIVISION</span>
+                <span class="spec-val-mini" lang="en">TOYOTA FORTUNER</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="testimonial-card border-accent-red">
+            <div class="card-meta">
+              <span class="job-id" lang="en">LOG #2041</span>
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            
+            <div class="quote-wrapper">
+              <span class="quote-icon" lang="en">“</span>
+              <p class="testimonial-text">
+                "यहाँ की एसी सर्विस और व्हील बैलेंसिंग सच में लाजवाब है। चिलचिलाती गर्मी में भी कार का केबिन मिनटों में ठंडा हो जाता है और ड्राइविंग बिल्कुल स्मूथ हो गई है।"
+              </p>
+            </div>
+            
+            <div class="specs-grid-mini">
+              <div class="spec-cell-mini">
+                <span class="spec-label-mini" lang="en">CLIENT</span>
+                <span class="spec-val-mini">प्रिया पटेल</span>
+              </div>
+              <div class="spec-cell-mini">
+                <span class="spec-label-mini" lang="en">VEHICLE DIVISION</span>
+                <span class="spec-val-mini" lang="en">HYUNDAI CRETA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call To Action Band Photo -->
+    <section class="cta-band-photo-section">
+      <div class="cta-overlay"></div>
+      <div class="container cta-band-content">
+        <h2 class="display-md cta-band-title" lang="en">EXPERIENCE THE ULTIMATE DRIVE</h2>
+        <p class="cta-band-subtitle">
+          क्या आपकी कार को सर्विस या चेकअप की आवश्यकता है? हमारे सलाहकारों से सीधे व्हाट्सएप पर बात करें।
+        </p>
+        <a href="https://wa.me/919814269633?text=नमस्ते%20MM%20Car%20Care!%20मुझे%20अपनी%20गाड़ी%20के%20चेकअप%20के%20लिए%20अपॉइंटमेंट%20चाहिए।" class="btn-primary" lang="en">
+          CHAT ON WHATSAPP
+        </a>
+      </div>
+    </section>
+
+    <!-- Social Media Feed Integration -->
+    <SocialPreview />
+
+  </main>
+
+  <!-- Global Footer -->
+  <Footer />
+
+  <!-- Floating WhatsApp Widget -->
+  <WhatsAppFloat />
+</Layout>
+
+<style>
+  /* Hero Section Styling */
+  .hero-section {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    padding-top: var(--spacing-xxl);
+    padding-bottom: var(--spacing-xxl);
+  }
+
+  .hero-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(5, 5, 5, 0.95) 0%, rgba(5, 5, 5, 0.7) 50%, rgba(5, 5, 5, 0.4) 100%);
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 800px;
+  }
+
+  .mini-hero-stripe {
+    width: 100px;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .tracking-tag {
+    color: var(--color-m-blue-dark);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .hero-title {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(16px, 3.5vw, 20px);
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-body);
+    margin-bottom: var(--spacing-xl);
+    max-width: 650px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: var(--spacing-md);
+  }
+
+  @media (max-width: 768px) {
+    .hero-ctas {
+      flex-direction: column;
+      width: 100%;
+    }
+    .hero-ctas a {
+      width: 100%;
+    }
+  }
+
+  /* Specs Band */
+  .specs-band {
+    background-color: var(--color-surface-soft);
+    padding: var(--spacing-xl) 0;
+  }
+
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+    text-align: center;
+  }
+
+  .spec-value {
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: var(--spacing-xxs);
+  }
+
+  .spec-label {
+    color: var(--color-muted);
+    font-size: 12px;
+  }
+
+  @media (max-width: 1024px) {
+    .specs-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-xl);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .specs-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+  }
+
+  /* Section headers */
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .section-tag {
+    color: var(--color-m-blue-dark);
+    display: inline-block;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .section-title {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .section-intro {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--color-body);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .card-tag {
+    color: var(--color-muted);
+    font-size: 11px;
+    display: block;
+    margin-bottom: var(--spacing-xxs);
+  }
+
+  .card-heading {
+    margin-bottom: var(--spacing-xs);
+    font-size: 20px;
+  }
+
+  .card-text {
+    margin-bottom: var(--spacing-md);
+  }
+
+  /* Value Proposition */
+  .value-prop-section {
+    background-color: var(--color-surface-soft);
+  }
+
+  .prop-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--spacing-xxl);
+    align-items: center;
+  }
+
+  .prop-tag {
+    color: var(--color-m-red);
+    display: inline-block;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .prop-title {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .prop-desc {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .prop-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .prop-list li {
+    display: flex;
+    gap: var(--spacing-md);
+  }
+
+  .prop-list .icon {
+    font-size: 24px;
+    color: var(--color-primary);
+    background-color: var(--color-surface-card);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .prop-list strong {
+    font-family: var(--font-display);
+    font-size: 16px;
+    display: block;
+    margin-bottom: var(--spacing-xxs);
+    color: var(--color-primary);
+  }
+
+  .prop-image-area {
+    position: relative;
+  }
+
+  .prop-image-area img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border: 1px solid var(--color-hairline);
+  }
+
+  .corner-stripe {
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    width: 100px;
+    height: 4px;
+    background-color: var(--color-m-red);
+  }
+
+  @media (max-width: 1024px) {
+    .prop-container {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-xl);
+    }
+  }
+
+  /* CTA Band Photo styling */
+  .cta-band-photo-section {
+    position: relative;
+    background-image: url('https://images.unsplash.com/photo-1616788494707-ec28f08d05a1?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0;
+    text-align: center;
+  }
+
+  .cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(5, 5, 5, 0.8);
+    z-index: 1;
+  }
+
+  .cta-band-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  .cta-band-subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--color-body);
+    margin-bottom: var(--spacing-md);
+  }
+
+  /* Testimonials Section Styling */
+  .testimonials-section {
+    background-color: var(--color-canvas);
+    background-image: radial-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 0);
+    background-size: 24px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tag-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .header-stripe {
+    display: flex;
+    height: 2px;
+    width: 40px;
+    background: linear-gradient(90deg, var(--color-m-blue-light) 0%, var(--color-m-blue-dark) 50%, var(--color-m-red) 100%);
+    margin-top: 4px;
+  }
+
+  .testimonials-grid {
+    margin-top: var(--spacing-xxl);
+    gap: var(--spacing-lg);
+  }
+
+  .testimonial-card {
+    background-color: var(--color-surface-card);
+    border: 1px solid var(--color-hairline);
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 310px;
+    position: relative;
+    border-radius: 0px;
+    transition: transform var(--transition-speed) var(--transition-easing),
+                border-color var(--transition-speed) var(--transition-easing),
+                box-shadow var(--transition-speed) var(--transition-easing);
+  }
+
+  .testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    transition: width var(--transition-speed) var(--transition-easing);
+  }
+
+  /* Card specific hover stripe colors */
+  .testimonial-card.border-accent-blue-light::before {
+    background-color: var(--color-m-blue-light);
+  }
+  .testimonial-card.border-accent-blue-dark::before {
+    background-color: var(--color-m-blue-dark);
+  }
+  .testimonial-card.border-accent-red::before {
+    background-color: var(--color-m-red);
+  }
+
+  .testimonial-card:hover::before {
+    width: 100%;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-hairline-strong);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  }
+
+  .card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-hairline);
+    padding-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .job-id {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-muted);
+    letter-spacing: 1.5px;
+  }
+
+  .stars {
+    display: flex;
+    gap: 3px;
+    color: #f4b400; /* Gold */
+    font-size: 10px;
+  }
+
+  .quote-wrapper {
+    position: relative;
+    margin-bottom: var(--spacing-lg);
+    flex-grow: 1;
+  }
+
+  .quote-icon {
+    position: absolute;
+    top: -15px;
+    left: -5px;
+    font-size: 56px;
+    color: rgba(255, 255, 255, 0.025);
+    font-family: var(--font-display);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .testimonial-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-body-strong);
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+  }
+
+  .specs-grid-mini {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm);
+    border-top: 1px solid var(--color-hairline);
+    padding-top: var(--spacing-md);
+    margin-top: auto;
+  }
+
+  .spec-cell-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .spec-label-mini {
+    font-family: var(--font-display);
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--color-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .spec-val-mini {
+    font-size: 13px;
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  /* Colors inside card details on hover or standard */
+  .testimonial-card.border-accent-blue-light:hover .spec-val-mini[lang="en"] {
+    color: var(--color-m-blue-light);
+    transition: color var(--transition-speed);
+  }
+  .testimonial-card.border-accent-blue-dark:hover .spec-val-mini[lang="en"] {
+    color: var(--color-m-blue-dark);
+    transition: color var(--transition-speed);
+  }
+  .testimonial-card.border-accent-red:hover .spec-val-mini[lang="en"] {
+    color: var(--color-m-red);
+    transition: color var(--transition-speed);
+  }
+</style>

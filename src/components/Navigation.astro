@@ -1,0 +1,340 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { name: 'HOME', path: '/' },
+  { name: 'SERVICES', path: '/services' },
+  { name: 'ABOUT US', path: '/about' },
+  { name: 'OUR STAFF', path: '/staff' },
+  { name: 'CONTACT US', path: '/contact' }
+];
+---
+
+<header class="top-nav-container" id="mainHeader">
+  <div class="container nav-inner">
+    <a href="/" class="logo-area">
+      <img src="/logo.png" alt="MM Car Care Logo" class="nav-logo" />
+      <div class="brand-text-wrapper">
+        <span class="brand-name" lang="en">MM CAR CARE</span>
+        <div class="mini-stripe">
+          <span class="s1"></span>
+          <span class="s2"></span>
+          <span class="s3"></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Desktop Menu -->
+    <nav class="desktop-menu">
+      {navItems.map(item => (
+        <a 
+          href={item.path} 
+          class={`nav-link ${currentPath === item.path ? 'active' : ''}`}
+          lang="en"
+        >
+          {item.name}
+        </a>
+      ))}
+      <a href="https://wa.me/919814269633?text=नमस्ते%20MM%20Car%20Care!%20मुझे%20बुकिंग%20करवानी%20है।" class="btn-primary nav-cta" lang="en">
+        BOOK NOW
+      </a>
+    </nav>
+
+    <!-- Mobile Hamburger Trigger -->
+    <button class="mobile-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Drawer overlay -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="m-stripe">
+      <span class="blue-light"></span>
+      <span class="blue-dark"></span>
+      <span class="red"></span>
+    </div>
+    <div class="drawer-header">
+      <div class="drawer-logo-area">
+        <img src="/logo.png" alt="MM Car Care Logo" class="drawer-logo" />
+        <span class="brand-name" lang="en">MM CAR CARE</span>
+      </div>
+      <button class="close-btn" id="menuClose" aria-label="Close Menu">×</button>
+    </div>
+    <nav class="drawer-links">
+      {navItems.map(item => (
+        <a 
+          href={item.path} 
+          class={`drawer-link ${currentPath === item.path ? 'active' : ''}`}
+          lang="en"
+        >
+          {item.name}
+        </a>
+      ))}
+      <a href="https://wa.me/919814269633?text=नमस्ते%20MM%20Car%20Care!%20मुझे%20बुकिंग%20करवानी%20है।" class="btn-primary drawer-cta" lang="en">
+        BOOK NOW
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .top-nav-container {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 120px; /* Upgraded initial height to accommodate a large logo */
+    background-color: var(--color-canvas);
+    border-bottom: 1px solid var(--color-hairline);
+    display: flex;
+    align-items: center;
+    transition: height var(--transition-speed) var(--transition-easing),
+                background-color var(--transition-speed) var(--transition-easing),
+                box-shadow var(--transition-speed) var(--transition-easing),
+                backdrop-filter var(--transition-speed) var(--transition-easing);
+  }
+
+  /* Scrolled shrinking states */
+  .top-nav-container.scrolled {
+    height: 72px; /* Upgraded scrolled height for a highly visible logo */
+    background-color: rgba(5, 5, 5, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  .logo-area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    gap: var(--spacing-sm);
+  }
+
+  .nav-logo {
+    height: 96px; /* Substantially larger initial logo size */
+    width: auto;
+    object-fit: contain;
+    transition: height var(--transition-speed) var(--transition-easing);
+  }
+
+  .top-nav-container.scrolled .nav-logo {
+    height: 54px; /* Maintain a highly readable size when scrolled */
+  }
+
+  .brand-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .drawer-logo-area {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .drawer-logo {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .brand-name {
+    font-family: var(--font-display);
+    font-size: 24px; /* Increased from 22px to align with the larger logo */
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 1px;
+    transition: font-size var(--transition-speed) var(--transition-easing);
+  }
+
+  .top-nav-container.scrolled .brand-name {
+    font-size: 20px; /* Increased from 19px for readability when scrolled */
+  }
+
+  .mini-stripe {
+    display: flex;
+    height: 3px;
+    width: 80px; /* Expanded initial width */
+    transition: width var(--transition-speed) var(--transition-easing);
+  }
+
+  .top-nav-container.scrolled .mini-stripe {
+    width: 60px; /* Expanded scrolled width */
+  }
+  .mini-stripe .s1 { width: 33%; background-color: var(--color-m-blue-light); }
+  .mini-stripe .s2 { width: 33%; background-color: var(--color-m-blue-dark); }
+  .mini-stripe .s3 { width: 34%; background-color: var(--color-m-red); }
+
+  .desktop-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+  }
+
+  .nav-link {
+    font-family: var(--font-display);
+    font-size: 14px; /* Increased from 13px */
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--color-body);
+    text-decoration: none;
+    transition: color var(--transition-speed) var(--transition-easing);
+    position: relative;
+    padding: 6px 0;
+  }
+
+  .nav-link:hover, .nav-link.active {
+    color: var(--color-primary);
+  }
+
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+  }
+
+  .nav-cta {
+    padding: 10px 20px; /* Increased from 8px 16px */
+    min-height: auto;
+    font-size: 13px; /* Increased from 12px */
+  }
+
+  /* Hamburger Menu Trigger */
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .mobile-toggle .bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: all var(--transition-speed);
+  }
+
+  /* Mobile Drawer Overlay */
+  .mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 320px;
+    height: 100vh;
+    background-color: var(--color-canvas);
+    z-index: 1000;
+    transition: right 0.35s cubic-bezier(0.77, 0, 0.175, 1);
+    box-shadow: -5px 0 25px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-drawer.open {
+    right: 0;
+  }
+
+  .drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-hairline);
+  }
+
+  .close-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-primary);
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .drawer-links {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-lg);
+    gap: var(--spacing-lg);
+  }
+
+  .drawer-link {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--color-body);
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-hairline);
+  }
+
+  .drawer-link:hover, .drawer-link.active {
+    color: var(--color-primary);
+  }
+
+  .drawer-cta {
+    margin-top: var(--spacing-md);
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .desktop-menu {
+      display: none;
+    }
+    .mobile-toggle {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById('menuToggle');
+  const closeBtn = document.getElementById('menuClose');
+  const drawer = document.getElementById('mobileDrawer');
+
+  if (toggleBtn && drawer) {
+    toggleBtn.addEventListener('click', () => {
+      drawer.classList.add('open');
+      document.body.style.overflow = 'hidden'; // Stop background scrolling
+    });
+  }
+
+  if (closeBtn && drawer) {
+    closeBtn.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+
+  // Shrinking navbar scroll logic
+  const header = document.getElementById('mainHeader');
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  // Initial check on load
+  handleScroll();
+</script>

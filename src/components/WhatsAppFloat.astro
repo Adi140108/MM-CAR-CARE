@@ -1,0 +1,89 @@
+---
+interface Props {
+  phoneNumber?: string;
+  defaultMessage?: string;
+}
+
+const { 
+  phoneNumber = "919814269633", 
+  defaultMessage = "नमस्ते MM Car Care! मुझे अपनी कार के सर्विस और रिपेयर के बारे में पूछताछ करनी है।" 
+} = Astro.props;
+
+const urlEncodedMessage = encodeURIComponent(defaultMessage);
+const whatsappUrl = `https://wa.me/${phoneNumber}?text=${urlEncodedMessage}`;
+---
+
+<a 
+  href={whatsappUrl} 
+  class="whatsapp-float-btn" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  aria-label="Contact us on WhatsApp"
+>
+  <span class="tooltip-text" lang="hi-IN">हमसे बात करें</span>
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<style>
+  .whatsapp-float-btn {
+    position: fixed;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    z-index: 99;
+    text-decoration: none;
+    transition: transform var(--transition-speed) var(--transition-easing),
+                background-color var(--transition-speed) var(--transition-easing);
+  }
+
+  .whatsapp-float-btn:hover {
+    transform: scale(1.1);
+    background-color: #128c7e;
+  }
+
+  .tooltip-text {
+    visibility: hidden;
+    width: 100px;
+    background-color: var(--color-surface-card);
+    color: var(--color-primary);
+    text-align: center;
+    border-radius: 4px;
+    padding: 6px 10px;
+    position: absolute;
+    right: 75px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    border: 1px solid var(--color-hairline);
+    opacity: 0;
+    transition: opacity var(--transition-speed), visibility var(--transition-speed);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  .whatsapp-float-btn:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .whatsapp-float-btn {
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      bottom: var(--spacing-md);
+      right: var(--spacing-md);
+    }
+    .tooltip-text {
+      display: none; /* Hide helper tooltips on small viewports */
+    }
+  }
+</style>

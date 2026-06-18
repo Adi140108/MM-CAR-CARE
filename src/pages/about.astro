@@ -1,0 +1,273 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+
+const title = "About Us | MM Car Care - Premium Automotive Workshop";
+const description = "MM Car Care के इतिहास, अत्याधुनिक उपकरणों और सटीकता के प्रति हमारी प्रतिबद्धता के बारे में जानें। हमारे अनुभवी सलाहकारों से जुड़ें।";
+---
+
+<Layout title={title} description={description}>
+  <Navigation />
+
+  <main>
+    <!-- Page Header (Minimal high-contrast style from DESIGN.md) -->
+    <section class="page-header">
+      <div class="container header-inner">
+        <div class="m-stripe page-stripe">
+          <span class="blue-light"></span>
+          <span class="blue-dark"></span>
+          <span class="red"></span>
+        </div>
+        <span class="label-uppercase tracking-tag" lang="en">SINCE 2016</span>
+        <h1 class="display-lg page-title" lang="en">ABOUT US</h1>
+        <p class="page-subtitle">
+          गुणवत्ता, ईमानदारी और अत्याधुनिक तकनीक के साथ निवाड़ी (मध्य प्रदेश) में आपकी पसंदीदा कार केयर वर्कशॉप।
+        </p>
+      </div>
+    </section>
+
+    <!-- Legacy / History Section -->
+    <section class="legacy-section section-padding border-b">
+      <div class="container legacy-grid">
+        <div class="legacy-image-area">
+          <img src="/about-signboard.jpg" alt="Mata Marai Car Workshop Signboard" />
+        </div>
+        <div class="legacy-text">
+          <span class="label-uppercase section-tag" lang="en">OUR LEGACY</span>
+          <h2 class="display-md section-title" lang="en">THE JOURNEY OF PRECISION</h2>
+          <p class="body-md paragraph-gap">
+            MM Car Care की शुरुआत साल 2016 में कारों के प्रति हमारे गहरे लगाव और गुणवत्तापूर्ण सेवा प्रदान करने के संकल्प के साथ हुई थी। एक छोटे से गैराज से शुरू होकर, आज हम निवाड़ी और झांसी क्षेत्र की प्रमुख कार सर्विस और मेंटेनेंस वर्कशॉप्स में से एक बन चुके हैं।
+          </p>
+          <p class="body-md">
+            हमारा उद्देश्य हमेशा से हर कार को वैसी ही सटीक केयर देना रहा है जैसी निर्माता द्वारा सोची गई थी। आज हम अत्याधुनिक उपकरणों और अत्यधिक प्रशिक्षित तकनीशियनों के साथ सभी प्रीमियम और मल्टी-ब्रांड कारों की देखभाल करते हैं।
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed Workshop Stats / Features -->
+    <section class="workshop-features section-padding border-b">
+      <div class="container">
+        <div class="section-header">
+          <span class="label-uppercase section-tag" lang="en">THE WORKSHOP</span>
+          <h2 class="display-lg section-title" lang="en">MODERN FACILITIES</h2>
+          <p class="section-intro">
+            हमारा इंफ्रास्ट्रक्चर बेहतरीन परिणामों के लिए उद्योग के मानकों के अनुसार स्थापित किया गया है।
+          </p>
+        </div>
+
+        <div class="grid-3 features-grid">
+          <div class="spec-cell">
+            <span class="display-sm spec-number" lang="en">01</span>
+            <strong class="title-sm cell-header" lang="en">ADVANCED LIFTS</strong>
+            <p class="body-sm">सुरक्षित और सटीक काम के लिए अत्याधुनिक टू-पोस्ट और फोर-पोस्ट हाइड्रोलिक लिफ्ट्स।</p>
+          </div>
+          <div class="spec-cell">
+            <span class="display-sm spec-number" lang="en">02</span>
+            <strong class="title-sm cell-header" lang="en">DIAGNOSTIC BAY</strong>
+            <p class="body-sm">कार में होने वाली किसी भी इलेक्ट्रॉनिक समस्या को तुरंत पकड़ने के लिए ओबीडी (OBD) कंप्यूटर टूल्स।</p>
+          </div>
+          <div class="spec-cell">
+            <span class="display-sm spec-number" lang="en">03</span>
+            <strong class="title-sm cell-header" lang="en">BALANCING BAY</strong>
+            <p class="body-sm">टायर और व्हील बैलेंसिंग के लिए आधुनिक कंप्यूटर-नियंत्रित मशीनें ताकि सुगम और सुरक्षित ड्राइविंग मिले।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Philosophy Section -->
+    <section class="philosophy-section section-padding">
+      <div class="container philosophy-inner">
+        <div class="philosophy-text">
+          <span class="label-uppercase section-tag" lang="en">COMMITMENT TO PRECISION</span>
+          <h2 class="display-md section-title" lang="en">OUR THREE PILLARS</h2>
+          <p class="body-md">
+            हम हर काम को एक कला की तरह देखते हैं। चाहे वह इंजन की मरम्मत हो या फिर सस्पेंशन का काम, हमारी वर्कशॉप इन तीन सिद्धांतों पर टिकी है:
+          </p>
+          <div class="pillars-list">
+            <div class="pillar-item">
+              <span class="pillar-title" lang="en">1. INTEGRITY / ईमानदारी</span>
+              <p class="body-sm">जो कार के लिए सही है, हम केवल वही सलाह देते हैं। कोई हिडन चार्ज या अनावश्यक काम नहीं।</p>
+            </div>
+            <div class="pillar-item">
+              <span class="pillar-title" lang="en">2. SPEED / त्वरित सेवा</span>
+              <p class="body-sm">हम आपके समय की कद्र करते हैं। अधिकांश सामान्य सर्विसेज को उसी दिन पूरा करके सौंप दिया जाता है।</p>
+            </div>
+            <div class="pillar-item">
+              <span class="pillar-title" lang="en">3. CRAFTSMANSHIP / शिल्प कौशल</span>
+              <p class="body-sm">हमारे मैकेनिकों के हाथ सालों के अनुभव और प्रशिक्षण से सधे हुए हैं। हम फिनिशिंग में विश्वास रखते हैं।</p>
+            </div>
+          </div>
+        </div>
+        <div class="philosophy-visual">
+          <img src="/about-features.png" alt="Marai Mata Car Workshop Features" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+</Layout>
+
+<style>
+  /* Header styling */
+  .page-header {
+    background-color: var(--color-surface-soft);
+    padding: var(--spacing-xxl) 0;
+    border-bottom: 1px solid var(--color-hairline);
+  }
+
+  .header-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .page-stripe {
+    width: 80px;
+    margin: 0 auto var(--spacing-md);
+  }
+
+  .tracking-tag {
+    color: var(--color-m-red);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .page-title {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .page-subtitle {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-body);
+  }
+
+  /* Legacy Grid */
+  .legacy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--spacing-xxl);
+    align-items: center;
+  }
+
+  .legacy-image-area img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    border: 1px solid var(--color-hairline);
+    background-color: #0d0d0d;
+  }
+
+  .legacy-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .section-tag {
+    color: var(--color-m-blue-dark);
+    display: inline-block;
+    margin-bottom: var(--spacing-xxs);
+  }
+
+  .section-title {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .paragraph-gap {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  @media (max-width: 1024px) {
+    .legacy-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-xl);
+    }
+  }
+
+  /* Workshop features spec cells */
+  .features-grid {
+    margin-top: var(--spacing-xl);
+  }
+
+  .spec-cell {
+    background-color: var(--color-surface-card);
+    border: 1px solid var(--color-hairline);
+    padding: var(--spacing-lg);
+    border-radius: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .spec-number {
+    color: var(--color-m-red);
+  }
+
+  .cell-header {
+    color: var(--color-primary);
+  }
+
+  /* Philosophy Section styling */
+  .philosophy-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--spacing-xxl);
+    align-items: center;
+  }
+
+  .philosophy-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .pillars-list {
+    margin-top: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .pillar-item {
+    border-left: 2px solid var(--color-m-blue-dark);
+    padding-left: var(--spacing-md);
+  }
+
+  .pillar-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: var(--spacing-xxs);
+  }
+
+  .philosophy-visual img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border: 1px solid var(--color-hairline);
+    background-color: #0d0d0d;
+  }
+
+  .philosophy-visual img[src$=".png"] {
+    object-fit: contain;
+    padding: var(--spacing-sm);
+  }
+
+  @media (max-width: 1024px) {
+    .philosophy-inner {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-xl);
+    }
+  }
+</style>

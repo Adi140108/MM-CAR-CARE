@@ -1,0 +1,387 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+
+const title = "Contact Us | Workshop Location & Appointments";
+const description = "MM Car Care से संपर्क करें। अपॉइंटमेंट लेने या पूछताछ के लिए हमारी दिल्ली वर्कशॉप का पता, फ़ोन नंबर और मैप लोकेशन यहाँ देखें।";
+---
+
+<Layout title={title} description={description}>
+  <Navigation />
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container header-inner">
+        <div class="m-stripe page-stripe">
+          <span class="blue-light"></span>
+          <span class="blue-dark"></span>
+          <span class="red"></span>
+        </div>
+        <span class="label-uppercase tracking-tag" lang="en">CONNECT WITH US</span>
+        <h1 class="display-lg page-title" lang="en">CONTACT US</h1>
+        <p class="page-subtitle">
+          हमसे संपर्क करें या सीधे व्हाट्सएप पर अपॉइंटमेंट बुक करें। हमारी टीम आपकी सहायता के लिए तैयार है।
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact details and forms -->
+    <section class="contact-section section-padding">
+      <div class="container contact-grid">
+        <!-- Info column -->
+        <div class="info-column">
+          <span class="label-uppercase col-tag" lang="en">WORKSHOP DIRECTORY</span>
+          <h2 class="display-md col-title" lang="en">OUR ADDRESS & INFO</h2>
+          
+          <div class="info-cards-stack">
+            <!-- Card 1: Location -->
+            <div class="info-card">
+              <i class="fa-solid fa-map-location-dot card-icon"></i>
+              <div class="card-details">
+                <span class="label-uppercase details-header" lang="en">WORKSHOP LOCATION</span>
+                <p class="body-sm">Beside New Galla Mandi, Mau Road Highway, Niwari, MP 472442</p>
+                <a href="https://www.google.com/search?kgmid=%2Fg%2F11rf4g56d7&hl=en-IN&q=MATA%20MARAI%20CAR%20WORKSHOP" target="_blank" rel="noopener noreferrer" class="text-link map-link" lang="en">GET DIRECTIONS</a>
+              </div>
+            </div>
+
+            <!-- Card 2: Phone & Email -->
+            <div class="info-card">
+              <i class="fa-solid fa-phone-volume card-icon"></i>
+              <div class="card-details">
+                <span class="label-uppercase details-header" lang="en">PHONE & EMAIL</span>
+                <p class="body-sm">मोबाइल: +91 98142 69633</p>
+                <p class="body-sm">ईमेल: info@mmcarcare.in</p>
+              </div>
+            </div>
+
+            <!-- Card 3: Hours -->
+            <div class="info-card">
+              <i class="fa-solid fa-business-time card-icon"></i>
+              <div class="card-details">
+                <span class="label-uppercase details-header" lang="en">OPERATING HOURS</span>
+                <p class="body-sm">सोमवार से रविवार: सुबह 09:00 बजे से शाम 07:00 बजे तक</p>
+                <p class="body-sm text-green">प्रतिदिन खुला है (Open Everyday)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Column -->
+        <div class="form-column">
+          <div class="form-card">
+            <div class="form-header">
+              <span class="label-uppercase form-tag" lang="en">APPOINTMENT REQUEST</span>
+              <h3 class="title-lg form-title" lang="en">BOOK A SLOT</h3>
+              <p class="body-sm form-intro">नीचे दिए गए विवरण भरें। सबमिट करते ही आपका अनुरोध सीधे हमारे व्हाट्सएप नंबर पर भेज दिया जाएगा।</p>
+            </div>
+
+            <form id="bookingForm" class="booking-form">
+              <!-- Name -->
+              <div class="form-group">
+                <label for="clientName" class="label-uppercase field-label">नाम / FULL NAME *</label>
+                <input type="text" id="clientName" required placeholder="अपना नाम दर्ज करें" />
+              </div>
+
+              <!-- Phone -->
+              <div class="form-group">
+                <label for="clientPhone" class="label-uppercase field-label">फ़ोन नंबर / MOBILE NUMBER *</label>
+                <input type="tel" id="clientPhone" required placeholder="अपना 10 अंकों का मोबाइल नंबर" pattern="[0-9]{10}" />
+              </div>
+
+              <!-- Car Model -->
+              <div class="form-group">
+                <label for="carModel" class="label-uppercase field-label">कार का मॉडल / CAR MODEL *</label>
+                <input type="text" id="carModel" required placeholder="जैसे: Swift, Creta, Fortuner" />
+              </div>
+
+              <!-- Service Type -->
+              <div class="form-group">
+                <label for="serviceType" class="label-uppercase field-label">सेवा का प्रकार / SERVICE *</label>
+                <select id="serviceType" required>
+                  <option value="" disabled selected>सेवा चुनें...</option>
+                  <option value="Car Service">कार सर्विस (Car Service)</option>
+                  <option value="Foam Wash">फ़ोम वॉश (Foam Wash)</option>
+                  <option value="AC Service">एसी सर्विस (AC Service)</option>
+                  <option value="System Diagnosis">सिस्टम डायग्नोसिस (System Diagnosis)</option>
+                  <option value="Wheel Balancing">व्हील बैलेंसिंग (Wheel Balancing)</option>
+                  <option value="Wheel Alignment">व्हील अलाइनमेंट (Wheel Alignment)</option>
+                  <option value="Tyre Change">टायर चेंज (Tyre Change)</option>
+                  <option value="Jump Start">जम्प स्टार्ट (Jump Start)</option>
+                  <option value="Denting & Painting">डेंटिंग पेंटिंग (Denting Painting)</option>
+                  <option value="Air Fill & Greasing">टायर हवा और ग्रीसिंग (Air Fill & Greasing)</option>
+                </select>
+              </div>
+
+              <!-- Custom Text Area -->
+              <div class="form-group">
+                <label for="userMessage" class="label-uppercase field-label">संदेश / MESSAGE (OPTIONAL)</label>
+                <textarea id="userMessage" placeholder="अपनी गाड़ी की समस्या या विशेष अनुरोध यहाँ लिखें..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary form-submit-btn" lang="en">
+                SEND APPOINTMENT REQUEST
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Google Map Section -->
+    <section class="map-section border-t">
+      <iframe
+        title="Mata Marai Car Workshop Location Map"
+        src="https://maps.google.com/maps?q=MATA%20MARAI%20CAR%20WORKSHOP%20Niwari&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        width="100%"
+        height="450"
+        style="border: none; filter: grayscale(100%) invert(90%) contrast(1.2);"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+</Layout>
+
+<style>
+  /* Header styling */
+  .page-header {
+    background-color: var(--color-surface-soft);
+    padding: var(--spacing-xxl) 0;
+    border-bottom: 1px solid var(--color-hairline);
+  }
+
+  .header-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .page-stripe {
+    width: 80px;
+    margin: 0 auto var(--spacing-md);
+  }
+
+  .tracking-tag {
+    color: var(--color-m-red);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .page-title {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .page-subtitle {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-body);
+  }
+
+  /* Grid details */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xxl);
+    align-items: start;
+  }
+
+  .col-tag {
+    color: var(--color-m-blue-dark);
+    display: inline-block;
+    margin-bottom: var(--spacing-xxs);
+  }
+
+  .col-title {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  /* Info cards stacking */
+  .info-cards-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .info-card {
+    display: flex;
+    gap: var(--spacing-md);
+    background-color: var(--color-surface-soft);
+    border: 1px solid var(--color-hairline);
+    padding: var(--spacing-lg);
+    border-radius: 0px;
+  }
+
+  .card-icon {
+    font-size: 28px;
+    color: var(--color-m-red);
+    margin-top: 4px;
+  }
+
+  .card-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xxs);
+  }
+
+  .details-header {
+    color: var(--color-primary);
+    font-size: 12px;
+  }
+
+  .map-link {
+    margin-top: var(--spacing-xs);
+    font-size: 12px;
+  }
+
+  .text-red {
+    color: var(--color-m-red);
+  }
+
+  /* Form Column */
+  .form-card {
+    background-color: var(--color-surface-card);
+    border: 1px solid var(--color-hairline);
+    padding: var(--spacing-xl);
+    border-radius: 0px;
+  }
+
+  .form-header {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .form-tag {
+    color: var(--color-m-red);
+    display: inline-block;
+    margin-bottom: var(--spacing-xxs);
+  }
+
+  .form-title {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .form-intro {
+    line-height: 1.5;
+  }
+
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .field-label {
+    font-size: 11px;
+    color: var(--color-body-strong);
+  }
+
+  .booking-form input, .booking-form select, .booking-form textarea {
+    background-color: var(--color-surface-soft);
+    border: 1px solid var(--color-hairline);
+    color: var(--color-primary);
+    padding: 12px var(--spacing-md);
+    font-size: 14px;
+    font-family: var(--font-body);
+    border-radius: 0px;
+    outline: none;
+    transition: border-color var(--transition-speed);
+  }
+
+  .booking-form input:focus, .booking-form select:focus, .booking-form textarea:focus {
+    border-color: var(--color-primary);
+  }
+
+  .booking-form textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  .form-submit-btn {
+    margin-top: var(--spacing-xs);
+    width: 100%;
+  }
+
+  /* Map section overlaying styling */
+  .map-section {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .map-overlay-text {
+    position: absolute;
+    z-index: 2;
+    text-align: center;
+  }
+
+  .map-placeholder {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(5, 5, 5, 0.8), rgba(5, 5, 5, 0.8)), url('https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%);
+  }
+
+  .mt-sm {
+    margin-top: var(--spacing-sm);
+    display: inline-block;
+  }
+
+  @media (max-width: 1024px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-xl);
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('bookingForm') as HTMLFormElement;
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Retrieve form values
+      const name = (document.getElementById('clientName') as HTMLInputElement).value;
+      const phone = (document.getElementById('clientPhone') as HTMLInputElement).value;
+      const car = (document.getElementById('carModel') as HTMLInputElement).value;
+      const service = (document.getElementById('serviceType') as HTMLSelectElement).value;
+      const message = (document.getElementById('userMessage') as HTMLTextAreaElement).value;
+
+      // Construct WhatsApp redirect string
+      let text = `नमस्ते MM Car Care! मैं अपॉइंटमेंट बुक करना चाहता हूँ।\n\n`;
+      text += `• नाम: ${name}\n`;
+      text += `• मोबाइल: ${phone}\n`;
+      text += `• कार मॉडल: ${car}\n`;
+      text += `• सेवा: ${service}\n`;
+      
+      if (message.trim()) {
+        text += `• विवरण: ${message}\n`;
+      }
+
+      const phoneNumber = "919814269633";
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+
+      // Redirect user to WhatsApp
+      window.open(whatsappUrl, '_blank');
+    });
+  }
+</script>

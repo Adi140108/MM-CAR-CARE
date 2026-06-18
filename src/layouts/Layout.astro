@@ -1,0 +1,97 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = "MM Car Care | Expert Car Service & Diagnostics", 
+	description = "MM Car Care में पाइए बेहतरीन कार सर्विसिंग, फ़ोम वॉश, एसी सर्विस, डायग्नोस्टिक्स, व्हील बैलेंसिंग और अलाइनमेंट। आज ही बुकिंग करें!" 
+} = Astro.props;
+
+// Local Business Schema JSON-LD
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "MM Car Care",
+  "image": "https://mmcarcare.in/assets/workshop-hero.jpg",
+  "@id": "https://mmcarcare.in/#organization",
+  "url": "https://mmcarcare.in",
+  "telephone": "+919814269633",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Beside New Galla Mandi, Mau Road Highway",
+    "addressLocality": "Niwari",
+    "addressRegion": "Madhya Pradesh",
+    "postalCode": "472442",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 25.2679659,
+    "longitude": 78.8023622
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "09:00",
+      "closes": "19:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/share/1Ew94op2ch/",
+    "https://www.instagram.com/mmcarworkshop?utm_source=qr&igsh=Ym9zbmU5c2VpOTJl",
+    "https://youtube.com/@mmcarworkshopniwari?si=7v3ODBOc8E3bDhCK"
+  ]
+});
+---
+
+<!doctype html>
+<html lang="hi-IN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<link rel="apple-touch-icon" href="/favicon.png" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- SEO Meta Tags -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="robots" content="index, follow" />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://mmcarcare.in/" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="https://mmcarcare.in/assets/workshop-hero.jpg" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://mmcarcare.in/" />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		
+		<!-- Font Awesome / Icons -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+		<!-- Schema.org JSON-LD Integration -->
+		<script type="application/ld+json" set:html={schemaJson}></script>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>

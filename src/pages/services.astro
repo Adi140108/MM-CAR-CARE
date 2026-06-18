@@ -1,0 +1,433 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+
+const title = "Our Services | MM Car Care - Auto Repair & Diagnostics";
+const description = "MM Car Care के ऑटो मेंटेनेंस, एसी सर्विस, सिस्टम डायग्नोसिस, व्हील बैलेंसिंग, व्हील अलाइनमेंट और डेंटिंग पेंटिंग सेवाओं की पूरी सूची देखें। बुकिंग के लिए व्हाट्सएप पर क्लिक करें।";
+
+const services = [
+  {
+    id: "maintenance",
+    title: "ENGINE CAR SERVICE",
+    hindiTitle: "कार सर्विस और मेंटेनेंस",
+    image: "/car-service.png",
+    desc: "हम इंजन की जाँच, ट्यूनिंग और मेंटेनेंस करके आपकी कार को बेहतर परफॉर्मेंस देते हैं। हमारे विशेषज्ञ मैकेनिक गाड़ी के हर यांत्रिक हिस्से की बारीकी से जांच करते हैं ताकि गाड़ी लंबी दूरी के सफर में भी बिना किसी रुकावट के बेहतरीन माइलेज और स्मूद ड्राइव दे।",
+    features: [
+      "इंजन ऑयल और फ़िल्टर चेंज (OEM/OES)",
+      "स्पार्क प्लग क्लीनिंग और रिप्लेसमेंट",
+      "कूलेंट और फ्लूइड लेवल चेक",
+      "एयर फिल्टर और केबिन फिल्टर रिप्लेसमेंट",
+      "सामान्य सुरक्षा और ब्रेक पॉइंट चेकअप"
+    ],
+    price: "₹2,500 से शुरू",
+    waMessage: "नमस्ते MM Car Care! मैं अपनी कार के जनरल कार सर्विस / मेंटेनेंस वर्क की बुकिंग करना चाहता हूँ। कृपया मुझे समय साझा करें।"
+  },
+  {
+    id: "foamwash",
+    title: "PREMIUM FOAM WASH",
+    hindiTitle: "कार फ़ोम वॉश",
+    image: "/foam-wash.png",
+    desc: "प्रेशर वॉशर, उच्च गुणवत्ता वाले कार शैम्पू और फ़ोम गन की मदद से गाड़ी की गहरी सफाई की जाती है। यह आपकी कार की चमक बनाए रखता है और बॉडी पेंट को सुरक्षित रखता है।",
+    features: [
+      "हाई-प्रेशर फ़ोम स्प्रे क्लीनिंग",
+      "मैट और ग्लास क्लीनिंग",
+      "इंटीरियर वैक्यूमिंग और डैशबोर्ड पॉलिश",
+      "टायर और व्हील आर्च क्लीनिंग",
+      "प्रीमियम लिक्विड वैक्स फिनिश"
+    ],
+    price: "₹250",
+    waMessage: "नमस्ते MM Car Care! मैं अपनी गाड़ी के लिए प्रीमियम फ़ोम वॉश सर्विस बुक करना चाहता हूँ।"
+  },
+  {
+    id: "ac",
+    title: "AIR CONDITIONING SERVICES",
+    hindiTitle: "एसी सर्विसिंग और कूलिंग रिपेयर",
+    image: "/ac-service.png",
+    desc: "कार के AC की सर्विस, गैस चार्ज और कूलिंग सुधार की सुविधा उपलब्ध है। गर्मियों में कार के केबिन को चिल्ड रखने के लिए हम कंप्रेसर चेक, लीक डिटेक्शन, कंडेनसर क्लीनिंग और प्रीमियम रेफ्रिजरेंट गैस रीफिल की पूरी सर्विस देते हैं।",
+    features: [
+      "एसी गैस लीक डिटेक्शन और प्रेशर टेस्टिंग",
+      "पर्यावरण अनुकूल R134a गैस टॉप-अप / रीफिल",
+      "केबिन एसी फिल्टर रिप्लेसमेंट / क्लीनिंग",
+      "कंडेनसर और एसी कूलिंग कॉइल क्लीनिंग",
+      "एसी कंप्रेसर क्लच और पुली बेल्ट इंस्पेक्शन"
+    ],
+    price: "₹1,500 से शुरू",
+    waMessage: "नमस्ते MM Car Care! मुझे अपनी कार की एसी सर्विसिंग और कूलिंग रिपेयर के लिए बुकिंग करनी है।"
+  },
+  {
+    id: "diagnostics",
+    title: "OBD SYSTEM DIAGNOSIS",
+    hindiTitle: "सिस्टम डायग्नोसिस और इलेक्ट्रिकल रिपेयर",
+    image: "/diagnostics.png",
+    desc: "कार स्कैनर की मदद से कार की समस्या पहचानकर सही रिपेयर दिया जाता है। आपके डैशबोर्ड पर चेक इंजन लाइट आने पर हमारे एडवांस ओबीडी-II स्कैनर्स तुरंत एरर कोड रीड कर इंजन, ट्रांसमिशन, एयरबैग और सेंसर की समस्याओं का सटीक इलाज करते हैं।",
+    features: [
+      "कंप्यूटरीकृत OBD-II फॉल्ट कोड स्कैनिंग",
+      "लाइव इंजन पैरामीटर एनालिसिस",
+      "चेक इंजन लाइट फॉल्ट क्लियरिंग",
+      "इलेक्ट्रॉनिक सेंसर टेस्टिंग और रीसेट",
+      "इलेक्ट्रिकल वायरिंग और बैटरी हेल्थ चेक"
+    ],
+    price: "₹500 से शुरू",
+    waMessage: "नमस्ते MM Car Care! मुझे अपनी गाड़ी के चेक इंजन लाइट या इलेक्ट्रिकल समस्या के लिए सिस्टम डायग्नोसिस बुक करना है।"
+  },
+  {
+    id: "wheel-balancing",
+    title: "COMPUTERIZED WHEEL BALANCING",
+    hindiTitle: "व्हील बैलेंसिंग",
+    image: "/wheel-balancing.png",
+    desc: "कम्प्यूटरीकृत व्हील बैलेंसिंग से टायर का असामान्य घिसना बंद होता है, जिससे ड्राइविंग के दौरान होने वाले कंपन से राहत मिलती है और टायर सुरक्षित चलते हैं।",
+    features: [
+      "कम्प्यूटरीकृत व्हील बैलेंसिंग — ₹50 + ₹2 प्रति ग्राम",
+      "स्टीयरिंग व्हील में आने वाले कंपन का समाधान",
+      "टायरों का समान वजन वितरण (Weight Distribution)",
+      "हाईवे ड्राइविंग पर कार की स्थिरता में सुधार",
+      "टायर की लाइफ और वियर पैटर्न चेक"
+    ],
+    price: "₹50 + ₹2 प्रति ग्राम",
+    waMessage: "नमस्ते MM Car Care! मुझे अपनी कार की व्हील बैलेंसिंग सर्विस के लिए अपॉइंटमेंट बुक करना है।"
+  },
+  {
+    id: "wheel-alignment",
+    title: "3D WHEEL ALIGNMENT",
+    hindiTitle: "3D व्हील अलाइनमेंट",
+    image: "/wheel-alignment.png",
+    desc: "सटीक 3D व्हील अलाइनमेंट द्वारा कार के स्टीयरिंग कंट्रोल को परफेक्ट किया जाता है, जिससे गाड़ी एक तरफ नहीं खिंचती और सीधे ट्रैक पर चलती है।",
+    features: [
+      "3D कम्प्यूटरीकृत व्हील अलाइनमेंट — ₹250",
+      "कैम्बर, कास्टर और टो (Toe) एंगल्स का सटीक एडजस्टमेंट",
+      "स्टीयरिंग व्हील सेंटरिंग और स्ट्रेट-लाइन स्टेबिलिटी",
+      "सप्लीमेंट्री सस्पेंशन और स्टीयरिंग लिंकेज चेक",
+      "टायर का असमान घिसना रोकने में मददगार"
+    ],
+    price: "₹250",
+    waMessage: "नमस्ते MM Car Care! मुझे अपनी कार के 3D व्हील अलाइनमेंट के लिए अपॉइंटमेंट बुक करना है।"
+  },
+  {
+    id: "tyre-change",
+    title: "TYRE REPLACEMENT & FITTING",
+    hindiTitle: "टायर चेंज और फिटिंग",
+    image: "/tyre-change.png",
+    desc: "पुराने या घिसे हुए टायरों को बदलकर नए टायरों की फिटिंग की जाती है। नए टायरों से गाड़ी की ग्रिप और सुरक्षा बहुत बेहतर हो जाती है।",
+    features: [
+      "पुराने टायरों को बदलना — ₹50 प्रति टायर",
+      "नए टायर फिटमेंट और बीड सीटिंग",
+      "वाल्व पिन रिप्लेसमेंट और लीक चेक",
+      "टायर प्रेशर कैलिब्रेशन",
+      "टायर रोटेशन असिस्टेंस"
+    ],
+    price: "₹50",
+    waMessage: "नमस्ते MM Car Care! मुझे अपनी कार के टायर रिप्लेसमेंट / टायर चेंज सर्विस के लिए अपॉइंटमेंट चाहिए।"
+  },
+  {
+    id: "jumpstart",
+    title: "EMERGENCY JUMP START",
+    hindiTitle: "जम्प स्टार्ट सर्विस",
+    image: "/jump-start.png",
+    desc: "अगर आपकी कार की बैटरी डाउन हो गई है और गाड़ी स्टार्ट नहीं हो रही, तो हमारी जम्प स्टार्ट सर्विस तुरंत आपकी मदद करती है। हम सेफ बूस्टर केबल और प्रोफेशनल जम्प स्टार्टर यूनिट से आपकी कार को बिना किसी नुकसान के स्टार्ट करते हैं।",
+    features: [
+      "प्रोफेशनल जम्प स्टार्टर यूनिट से सुरक्षित स्टार्ट",
+      "बैटरी वोल्टेज और हेल्थ चेक",
+      "अल्टरनेटर चार्जिंग आउटपुट टेस्टिंग",
+      "बैटरी टर्मिनल क्लीनिंग और टाइटनिंग",
+      "नई बैटरी रिप्लेसमेंट असिस्टेंस"
+    ],
+    price: "₹300 से शुरू",
+    waMessage: "नमस्ते MM Car Care! मेरी कार की बैटरी डाउन है, मुझे जम्प स्टार्ट सर्विस की बुकिंग करनी है।"
+  },
+  {
+    id: "bodypaint",
+    title: "DENTING, PAINTING & BODY REPAIR",
+    hindiTitle: "डेंटिंग पेंटिंग और बॉडी रिपेयर",
+    image: "/body-repair.png",
+    desc: "कार पर लगे डेंट, स्क्रैच या रंग उतरने की समस्या को हम एक्सपर्ट डेंटिंग और पेंटिंग सर्विस से ठीक करते हैं। हम ऑटो-ग्रेड पेंट, clear coat और मैचिंग कलर टेक्नोलॉजी का उपयोग करके आपकी गाड़ी को शोरूम जैसी चमकदार फिनिश देते हैं।",
+    features: [
+      "पेंटलेस डेंट रिमूवल (PDR) टेक्नोलॉजी",
+      "स्क्रैच रिमूवल और टच-अप पेंट",
+      "कंप्यूटर जनरेटेड कलर मैचिंग",
+      "फुल बॉडी रीपेंट और क्लियर कोट फिनिश",
+      "बम्पर रिपेयर और प्लास्टिक वेल्डिंग"
+    ],
+    price: "₹1,200 से शुरू",
+    waMessage: "नमस्ते MM Car Care! मुझे अपनी कार की डेंटिंग पेंटिंग और बॉडी रिपेयर के लिए अपॉइंटमेंट चाहिए।"
+  },
+  {
+    id: "air-greasing",
+    title: "AIR FILL & GREASING",
+    hindiTitle: "टायर हवा और ग्रीसिंग",
+    image: "/air-fill-greasing.png",
+    desc: "टायरों में सटीक प्रेशर एयर फिलिंग और सस्पेंशन व मैकेनिकल पार्ट्स की ग्रीसिंग सर्विस उपलब्ध है ताकि गाड़ी की ड्राइव स्मूद रहे और पार्ट्स घिसने से सुरक्षित रहें।",
+    features: [
+      "सटीक प्रेशर टायर एयर चेक और फिलिंग",
+      "सस्पेंशन मूविंग पार्ट्स ग्रीसिंग",
+      "स्टीयरिंग लिंकेज और जॉइंट्स लुब्रिकेशन",
+      "सुरक्षित हाईवे ड्राइव और कंपन में कमी",
+      "मुख्य डोर हिन्जेस और बेयरिंग्स लुब्रिकेशन"
+    ],
+    price: "₹20 से शुरू",
+    waMessage: "नमस्ते MM Car Care! मुझे अपनी कार के टायर हवा चेक और ग्रीसिंग वर्क के लिए बुकिंग करनी है।"
+  }
+];
+---
+
+<Layout title={title} description={description}>
+  <Navigation />
+
+  <main>
+    <!-- Page Title Header -->
+    <section class="page-header">
+      <div class="container header-inner">
+        <div class="m-stripe page-stripe">
+          <span class="blue-light"></span>
+          <span class="blue-dark"></span>
+          <span class="red"></span>
+        </div>
+        <span class="label-uppercase tracking-tag" lang="en">OUR EXPERTISE</span>
+        <h1 class="display-lg page-title" lang="en">PRECISION SERVICES</h1>
+        <p class="page-subtitle">
+          हम आपकी कार को सर्वश्रेष्ठ सुरक्षा और यांत्रिक प्रदर्शन प्रदान करने के लिए प्रतिबद्ध हैं। नीचे हमारी प्रमुख सेवाओं की सूची दी गई है।
+        </p>
+      </div>
+    </section>
+
+    <!-- Services Detailed Showcase (Alternating Layout) -->
+    <section class="services-list-section">
+      {services.map((service, index) => (
+        <div id={service.id} class={`service-block border-b ${index % 2 === 1 ? 'block-reverse' : ''}`}>
+          <div class="container block-inner">
+            <div class="service-image-area">
+              <img src={service.image} alt={service.title} />
+              <div class="m-stripe-overlay">
+                <span class="blue-light"></span>
+                <span class="blue-dark"></span>
+                <span class="red"></span>
+              </div>
+            </div>
+            <div class="service-details">
+              <span class="label-uppercase category-tag" lang="en">SERVICE {index + 1}</span>
+              <h2 class="display-md service-name" lang="en">{service.title}</h2>
+              <h3 class="hindi-subtitle">{service.hindiTitle}</h3>
+              
+              <p class="body-md desc-text">{service.desc}</p>
+              
+              <ul class="features-list">
+                {service.features.map(feat => (
+                  <li><i class="fa-solid fa-circle-check"></i> <span>{feat}</span></li>
+                ))}
+              </ul>
+              
+              <div class="booking-price-row">
+                <div class="price-badge">
+                  <span class="caption" lang="en">ESTIMATED PRICE</span>
+                  <strong class="price-val">{service.price}</strong>
+                </div>
+                <a 
+                  href={`https://wa.me/919814269633?text=${encodeURIComponent(service.waMessage)}`} 
+                  class="btn-primary booking-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  lang="en"
+                >
+                  BOOK SERVICE ON WHATSAPP
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+</Layout>
+
+<style>
+  /* Header styling */
+  .page-header {
+    background-color: var(--color-surface-soft);
+    padding: var(--spacing-xxl) 0;
+    border-bottom: 1px solid var(--color-hairline);
+  }
+
+  .header-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .page-stripe {
+    width: 80px;
+    margin: 0 auto var(--spacing-md);
+  }
+
+  .tracking-tag {
+    color: var(--color-m-blue-dark);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .page-title {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .page-subtitle {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-body);
+  }
+
+  /* Service Blocks Alternating Layout */
+  .service-block {
+    padding: var(--spacing-section) 0;
+    background-color: var(--color-canvas);
+  }
+
+  .service-block:nth-child(even) {
+    background-color: var(--color-surface-soft);
+  }
+
+  .block-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: var(--spacing-xxl);
+    align-items: center;
+  }
+
+  .block-reverse .block-inner {
+    grid-template-columns: 1.1fr 1fr;
+  }
+
+  .block-reverse .service-image-area {
+    order: 2;
+  }
+
+  .service-image-area {
+    position: relative;
+    border: 1px solid var(--color-hairline);
+  }
+
+  .service-image-area img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    background-color: #0d0d0d;
+  }
+
+  .service-image-area img[src$=".png"] {
+    object-fit: contain;
+    padding: var(--spacing-sm);
+  }
+
+  .m-stripe-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    display: flex;
+  }
+  .m-stripe-overlay span { height: 100%; }
+  .m-stripe-overlay .blue-light { width: 33%; background-color: var(--color-m-blue-light); }
+  .m-stripe-overlay .blue-dark { width: 33%; background-color: var(--color-m-blue-dark); }
+  .m-stripe-overlay .red { width: 34%; background-color: var(--color-m-red); }
+
+  .service-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .category-tag {
+    color: var(--color-m-red);
+  }
+
+  .service-name {
+    color: var(--color-primary);
+  }
+
+  .hindi-subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--color-body-strong);
+    border-bottom: 1px solid var(--color-hairline);
+    padding-bottom: var(--spacing-xs);
+    margin-top: -10px;
+  }
+
+  .desc-text {
+    line-height: 1.7;
+  }
+
+  .features-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
+  }
+
+  .features-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 14px;
+    color: var(--color-body-strong);
+  }
+
+  .features-list i {
+    color: var(--color-m-blue-light);
+  }
+
+  .booking-price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-surface-card);
+    border: 1px solid var(--color-hairline);
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-md);
+    border-radius: 0px;
+  }
+
+  .price-badge {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price-val {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .booking-btn {
+    padding: 10px 20px;
+    min-height: auto;
+    font-size: 12px;
+  }
+
+  @media (max-width: 1024px) {
+    .block-inner, .block-reverse .block-inner {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-xl);
+    }
+    .block-reverse .service-image-area {
+      order: 0;
+    }
+    .features-list {
+      grid-template-columns: 1fr;
+    }
+    .booking-price-row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--spacing-md);
+      text-align: center;
+    }
+  }
+</style>

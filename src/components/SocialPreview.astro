@@ -1,0 +1,210 @@
+---
+const feeds = [
+  {
+    platform: 'instagram',
+    icon: 'fa-brands fa-instagram',
+    image: 'https://images.unsplash.com/photo-1616788494707-ec28f08d05a1?auto=format&fit=crop&w=600&q=80',
+    title: 'हमारा काम देखें',
+    stats: '@mmcarworkshop',
+    desc: 'हमारी Instagram प्रोफाइल पर जाकर वर्कशॉप में होने वाले रिपेयर, सर्विसिंग और कार ट्रांसफॉर्मेशन के फोटो और वीडियो देखें।',
+    link: 'https://www.instagram.com/mmcarworkshop?utm_source=qr&igsh=Ym9zbmU5c2VpOTJl'
+  },
+  {
+    platform: 'youtube',
+    icon: 'fa-brands fa-youtube',
+    image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=600&q=80',
+    title: 'रिपेयर वीडियो देखें',
+    stats: '@mmcarworkshopniwari',
+    desc: 'हमारे YouTube चैनल पर कार रिपेयर, सर्विसिंग और मेंटेनेंस की असली वीडियो देखें। सब्सक्राइब करें!',
+    link: 'https://youtube.com/@mmcarworkshopniwari?si=7v3ODBOc8E3bDhCK'
+  },
+  {
+    platform: 'facebook',
+    icon: 'fa-brands fa-facebook-f',
+    image: 'https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=600&q=80',
+    title: 'रिव्यू और अपडेट',
+    stats: 'MM Car Workshop',
+    desc: 'हमारे Facebook पेज पर ग्राहकों के रिव्यू पढ़ें, लेटेस्ट ऑफर देखें और वर्कशॉप की ताज़ा अपडेट पाएं।',
+    link: 'https://www.facebook.com/share/1Ew94op2ch/'
+  }
+];
+---
+
+<div class="social-feed-section">
+  <div class="m-stripe">
+    <span class="blue-light"></span>
+    <span class="blue-dark"></span>
+    <span class="red"></span>
+  </div>
+  <div class="container section-padding">
+    <div class="section-header">
+      <span class="label-uppercase header-tag" lang="en">SOCIAL MEDIA INTEGRATION</span>
+      <h2 class="display-lg main-title" lang="en">JOIN OUR COMMUNITY</h2>
+      <p class="section-subtitle">हमारे सोशल मीडिया चैनलों पर जुड़ें और हमारी नवीनतम कार केयर प्रोजेक्ट्स की झलक देखें।</p>
+    </div>
+
+    <div class="grid-3 feed-grid">
+      {feeds.map(feed => (
+        <a href={feed.link} class="feed-card" target="_blank" rel="noopener noreferrer">
+          <div class="image-wrapper">
+            <img src={feed.image} alt={feed.title} loading="lazy" />
+            <div class="hover-overlay">
+              <span class="overlay-icon"><i class={feed.icon}></i></span>
+              <span class="overlay-stats" lang="en">{feed.stats}</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="platform-indicator" data-platform={feed.platform}>
+              <i class={feed.icon}></i> <span lang="en">{feed.platform.toUpperCase()}</span>
+            </div>
+            <h3 class="title-lg card-title" lang="en">{feed.title}</h3>
+            <p class="body-sm card-desc">{feed.desc}</p>
+            <span class="text-link learn-more" lang="en">VIEW POST</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .social-feed-section {
+    background-color: var(--color-canvas);
+    border-top: 1px solid var(--color-hairline);
+  }
+
+  .section-header {
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .header-tag {
+    color: var(--color-m-red);
+    display: inline-block;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .main-title {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--color-body);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .feed-grid {
+    margin-top: var(--spacing-xl);
+  }
+
+  .feed-card {
+    background-color: var(--color-surface-card);
+    border: 1px solid var(--color-hairline);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0px;
+    overflow: hidden;
+    transition: border-color var(--transition-speed) var(--transition-easing),
+                transform var(--transition-speed) var(--transition-easing);
+  }
+
+  .feed-card:hover {
+    border-color: var(--color-hairline-strong);
+    transform: translateY(-4px);
+  }
+
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s var(--transition-easing);
+  }
+
+  .feed-card:hover .image-wrapper img {
+    transform: scale(1.05);
+  }
+
+  .hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity var(--transition-speed) var(--transition-easing);
+    gap: var(--spacing-xs);
+  }
+
+  .feed-card:hover .hover-overlay {
+    opacity: 1;
+  }
+
+  .overlay-icon {
+    font-size: 32px;
+    color: var(--color-primary);
+  }
+
+  .overlay-stats {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.5px;
+  }
+
+  .card-content {
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    flex-grow: 1;
+  }
+
+  .platform-indicator {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .platform-indicator[data-platform="instagram"] { color: #e1306c; }
+  .platform-indicator[data-platform="youtube"] { color: #ff0000; }
+  .platform-indicator[data-platform="facebook"] { color: #1877f2; }
+
+  .card-title {
+    font-size: 18px;
+    color: var(--color-primary);
+    margin-top: 2px;
+  }
+
+  .card-desc {
+    color: var(--color-body);
+    font-weight: 300;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.5;
+  }
+
+  .learn-more {
+    margin-top: auto;
+    font-size: 12px;
+  }
+</style>

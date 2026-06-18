@@ -1,0 +1,289 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer-container border-t">
+  <div class="container footer-grid">
+    <!-- Col 1: Brand Info -->
+    <div class="footer-col brand-col">
+      <div class="footer-logo-area">
+        <img src="/logo.png" alt="MM Car Care Logo" class="footer-logo-img" />
+        <span class="footer-logo" lang="en">MM CAR CARE</span>
+      </div>
+      <p class="footer-desc">
+        हम आपकी कार को सर्वोत्तम मरम्मत, रखरखाव और परफॉर्मेंस ट्यूनिंग प्रदान करने के लिए प्रतिबद्ध हैं। हमारे विशेषज्ञों की टीम हर विवरण पर पूरा ध्यान देती है।
+      </p>
+      <div class="footer-map-area">
+        <iframe
+          title="Mata Marai Car Workshop Location Map"
+          src="https://maps.google.com/maps?q=MATA%20MARAI%20CAR%20WORKSHOP%20Niwari&t=&z=14&ie=UTF8&iwloc=&output=embed"
+          width="100%"
+          height="120"
+          style="border: 1px solid var(--color-hairline); filter: grayscale(100%) invert(90%) contrast(1.1); margin-top: var(--spacing-xs);"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
+        <a href="https://www.google.com/search?kgmid=%2Fg%2F11rf4g56d7&hl=en-IN&q=MATA%20MARAI%20CAR%20WORKSHOP" target="_blank" rel="noopener noreferrer" class="footer-map-btn">
+          <i class="fa-solid fa-map-location-dot"></i> <span lang="en">VIEW WORKSHOP MAP</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Col 2: Quick Links -->
+    <div class="footer-col">
+      <h3 class="footer-title" lang="en">QUICK LINKS</h3>
+      <ul class="footer-links">
+        <li><a href="/" lang="en">HOME</a></li>
+        <li><a href="/services" lang="en">SERVICES</a></li>
+        <li><a href="/about" lang="en">ABOUT US</a></li>
+        <li><a href="/staff" lang="en">OUR STAFF</a></li>
+        <li><a href="/contact" lang="en">CONTACT US</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 3: Services -->
+    <div class="footer-col">
+      <h3 class="footer-title" lang="en">OUR SERVICES</h3>
+      <ul class="footer-links">
+        <li><a href="/services#maintenance">कार सर्विस (Car Service)</a></li>
+        <li><a href="/services#foamwash">फ़ोम वॉश (Foam Wash)</a></li>
+        <li><a href="/services#ac">एसी सर्विस (AC Service)</a></li>
+        <li><a href="/services#diagnostics">सिस्टम डायग्नोसिस (System Diagnosis)</a></li>
+        <li><a href="/services#wheel-balancing">व्हील बैलेंसिंग (Wheel Balancing)</a></li>
+        <li><a href="/services#wheel-alignment">व्हील अलाइनमेंट (Wheel Alignment)</a></li>
+        <li><a href="/services#tyre-change">टायर चेंज (Tyre Change)</a></li>
+        <li><a href="/services#jumpstart">जम्प स्टार्ट (Jump Start)</a></li>
+        <li><a href="/services#bodypaint">डेंटिंग पेंटिंग (Denting Painting)</a></li>
+        <li><a href="/services#air-greasing">टायर हवा और ग्रीसिंग (Air Fill & Greasing)</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 4: Timings & Address -->
+    <div class="footer-col">
+      <h3 class="footer-title" lang="en">WORKSHOP INFO</h3>
+      <ul class="footer-info">
+        <li><i class="fa-solid fa-location-dot"></i> <span>Beside New Galla Mandi, Mau Road Highway, Niwari, MP 472442</span></li>
+        <li><i class="fa-solid fa-phone"></i> <span>+91 98142 69633</span></li>
+        <li><i class="fa-solid fa-clock"></i> <span>Mo - Su: 09:00 AM - 07:00 PM</span></li>
+        <li class="timing-highlight">Open Everyday / प्रतिदिन खुला है</li>
+      </ul>
+      <div class="social-links">
+        <a href="https://www.facebook.com/share/1Ew94op2ch/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/mmcarworkshop?utm_source=qr&igsh=Ym9zbmU5c2VpOTJl" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://youtube.com/@mmcarworkshopniwari?si=7v3ODBOc8E3bDhCK" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-stripe">
+    <span class="blue-light"></span>
+    <span class="blue-dark"></span>
+    <span class="red"></span>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container bottom-inner">
+      <p class="copyright">
+        &copy; {currentYear} MM CAR CARE. All Rights Reserved. Designed for performance.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer-container {
+    background-color: var(--color-canvas);
+    color: var(--color-body);
+    padding-top: var(--spacing-xxl);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-xl);
+    padding-bottom: var(--spacing-xxl);
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .footer-logo-area {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .footer-logo-img {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 1px;
+  }
+
+  .footer-desc {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-body);
+  }
+
+  .footer-title {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--color-primary);
+    border-left: 2px solid var(--color-m-red);
+    padding-left: var(--spacing-xs);
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .footer-links a {
+    color: var(--color-body);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color var(--transition-speed) var(--transition-easing);
+  }
+
+  .footer-links a:hover {
+    color: var(--color-primary);
+  }
+
+  .footer-info {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    font-size: 14px;
+  }
+
+  .footer-info li {
+    display: flex;
+    gap: var(--spacing-sm);
+    line-height: 1.5;
+  }
+
+  .footer-info i {
+    color: var(--color-primary);
+    margin-top: 4px;
+  }
+
+  .timing-highlight {
+    font-size: 12px;
+    color: var(--color-m-red);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-top: var(--spacing-xs);
+  }
+
+  .footer-bottom {
+    background-color: var(--color-surface-soft);
+    padding: var(--spacing-md) 0;
+  }
+
+  .bottom-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .copyright {
+    font-size: 12px;
+    color: var(--color-muted);
+    text-align: center;
+    width: 100%;
+  }
+
+  .social-links {
+    display: flex;
+    gap: var(--spacing-md);
+  }
+
+  .social-links a {
+    color: var(--color-muted);
+    font-size: 16px;
+    transition: color var(--transition-speed) var(--transition-easing),
+                transform var(--transition-speed) var(--transition-easing);
+  }
+
+  .social-links a:hover {
+    color: var(--color-primary);
+    transform: translateY(-2px);
+  }
+
+  .footer-map-area {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    width: 100%;
+    margin-top: var(--spacing-sm);
+  }
+
+  .footer-map-area iframe {
+    border-radius: 0px;
+    background-color: var(--color-surface-soft);
+  }
+
+  .footer-map-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    background-color: transparent;
+    border: 1px solid var(--color-hairline);
+    color: var(--color-primary);
+    padding: 10px;
+    font-size: 11px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color var(--transition-speed), border-color var(--transition-speed);
+    width: 100%;
+  }
+
+  .footer-map-btn:hover {
+    background-color: var(--color-surface-elevated);
+    border-color: var(--color-primary);
+  }
+
+  @media (max-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+    }
+    .bottom-inner {
+      text-align: center;
+    }
+  }
+</style>
