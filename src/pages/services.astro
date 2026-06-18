@@ -7,6 +7,9 @@ import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 const title = "Our Services | MM Car Care - Auto Repair & Diagnostics";
 const description = "MM Car Care के ऑटो मेंटेनेंस, एसी सर्विस, सिस्टम डायग्नोसिस, व्हील बैलेंसिंग, व्हील अलाइनमेंट और डेंटिंग पेंटिंग सेवाओं की पूरी सूची देखें। बुकिंग के लिए व्हाट्सएप पर क्लिक करें।";
 
+const base = import.meta.env.BASE_URL;
+const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
+
 const services = [
   {
     id: "maintenance",
@@ -197,7 +200,7 @@ const services = [
         <div id={service.id} class={`service-block border-b ${index % 2 === 1 ? 'block-reverse' : ''}`}>
           <div class="container block-inner">
             <div class="service-image-area">
-              <img src={service.image} alt={service.title} />
+              <img src={`${cleanBase}${service.image}`} alt={service.title} />
               <div class="m-stripe-overlay">
                 <span class="blue-light"></span>
                 <span class="blue-dark"></span>

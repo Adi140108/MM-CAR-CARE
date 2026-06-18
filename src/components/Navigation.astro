@@ -1,19 +1,21 @@
 ---
 const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
+const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
 
 const navItems = [
-  { name: 'HOME', path: '/' },
-  { name: 'SERVICES', path: '/services' },
-  { name: 'ABOUT US', path: '/about' },
-  { name: 'OUR STAFF', path: '/staff' },
-  { name: 'CONTACT US', path: '/contact' }
+  { name: 'HOME', path: cleanBase === '' ? '/' : cleanBase },
+  { name: 'SERVICES', path: `${cleanBase}/services` },
+  { name: 'ABOUT US', path: `${cleanBase}/about` },
+  { name: 'OUR STAFF', path: `${cleanBase}/staff` },
+  { name: 'CONTACT US', path: `${cleanBase}/contact` }
 ];
 ---
 
 <header class="top-nav-container" id="mainHeader">
   <div class="container nav-inner">
-    <a href="/" class="logo-area">
-      <img src="/logo.png" alt="MM Car Care Logo" class="nav-logo" />
+    <a href={cleanBase === '' ? '/' : cleanBase} class="logo-area">
+      <img src={`${cleanBase}/logo.png`} alt="MM Car Care Logo" class="nav-logo" />
       <div class="brand-text-wrapper">
         <span class="brand-name" lang="en">MM CAR CARE</span>
         <div class="mini-stripe">
@@ -57,7 +59,7 @@ const navItems = [
     </div>
     <div class="drawer-header">
       <div class="drawer-logo-area">
-        <img src="/logo.png" alt="MM Car Care Logo" class="drawer-logo" />
+        <img src={`${cleanBase}/logo.png`} alt="MM Car Care Logo" class="drawer-logo" />
         <span class="brand-name" lang="en">MM CAR CARE</span>
       </div>
       <button class="close-btn" id="menuClose" aria-label="Close Menu">×</button>

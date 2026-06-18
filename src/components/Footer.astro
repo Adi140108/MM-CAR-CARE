@@ -1,5 +1,7 @@
 ---
 const currentYear = new Date().getFullYear();
+const base = import.meta.env.BASE_URL;
+const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
 ---
 
 <footer class="footer-container border-t">
@@ -7,7 +9,7 @@ const currentYear = new Date().getFullYear();
     <!-- Col 1: Brand Info -->
     <div class="footer-col brand-col">
       <div class="footer-logo-area">
-        <img src="/logo.png" alt="MM Car Care Logo" class="footer-logo-img" />
+        <img src={`${cleanBase}/logo.png`} alt="MM Car Care Logo" class="footer-logo-img" />
         <span class="footer-logo" lang="en">MM CAR CARE</span>
       </div>
       <p class="footer-desc">
@@ -33,11 +35,11 @@ const currentYear = new Date().getFullYear();
     <div class="footer-col">
       <h3 class="footer-title" lang="en">QUICK LINKS</h3>
       <ul class="footer-links">
-        <li><a href="/" lang="en">HOME</a></li>
-        <li><a href="/services" lang="en">SERVICES</a></li>
-        <li><a href="/about" lang="en">ABOUT US</a></li>
-        <li><a href="/staff" lang="en">OUR STAFF</a></li>
-        <li><a href="/contact" lang="en">CONTACT US</a></li>
+        <li><a href={cleanBase === '' ? '/' : cleanBase} lang="en">HOME</a></li>
+        <li><a href={`${cleanBase}/services`} lang="en">SERVICES</a></li>
+        <li><a href={`${cleanBase}/about`} lang="en">ABOUT US</a></li>
+        <li><a href={`${cleanBase}/staff`} lang="en">OUR STAFF</a></li>
+        <li><a href={`${cleanBase}/contact`} lang="en">CONTACT US</a></li>
       </ul>
     </div>
 
@@ -45,16 +47,16 @@ const currentYear = new Date().getFullYear();
     <div class="footer-col">
       <h3 class="footer-title" lang="en">OUR SERVICES</h3>
       <ul class="footer-links">
-        <li><a href="/services#maintenance">कार सर्विस (Car Service)</a></li>
-        <li><a href="/services#foamwash">फ़ोम वॉश (Foam Wash)</a></li>
-        <li><a href="/services#ac">एसी सर्विस (AC Service)</a></li>
-        <li><a href="/services#diagnostics">सिस्टम डायग्नोसिस (System Diagnosis)</a></li>
-        <li><a href="/services#wheel-balancing">व्हील बैलेंसिंग (Wheel Balancing)</a></li>
-        <li><a href="/services#wheel-alignment">व्हील अलाइनमेंट (Wheel Alignment)</a></li>
-        <li><a href="/services#tyre-change">टायर चेंज (Tyre Change)</a></li>
-        <li><a href="/services#jumpstart">जम्प स्टार्ट (Jump Start)</a></li>
-        <li><a href="/services#bodypaint">डेंटिंग पेंटिंग (Denting Painting)</a></li>
-        <li><a href="/services#air-greasing">टायर हवा और ग्रीसिंग (Air Fill & Greasing)</a></li>
+        <li><a href={`${cleanBase}/services#maintenance`}>कार सर्विस (Car Service)</a></li>
+        <li><a href={`${cleanBase}/services#foamwash`}>फ़ोम वॉश (Foam Wash)</a></li>
+        <li><a href={`${cleanBase}/services#ac`}>एसी सर्विस (AC Service)</a></li>
+        <li><a href={`${cleanBase}/services#diagnostics`}>सिस्टम डायग्नोसिस (System Diagnosis)</a></li>
+        <li><a href={`${cleanBase}/services#wheel-balancing`}>व्हील बैलेंसिंग (Wheel Balancing)</a></li>
+        <li><a href={`${cleanBase}/services#wheel-alignment`}>व्हील अलाइनमेंट (Wheel Alignment)</a></li>
+        <li><a href={`${cleanBase}/services#tyre-change`}>टायर चेंज (Tyre Change)</a></li>
+        <li><a href={`${cleanBase}/services#jumpstart`}>जम्प स्टार्ट (Jump Start)</a></li>
+        <li><a href={`${cleanBase}/services#bodypaint`}>डेंटिंग पेंटिंग (Denting Painting)</a></li>
+        <li><a href={`${cleanBase}/services#air-greasing`}>टायर हवा और ग्रीसिंग (Air Fill & Greasing)</a></li>
       </ul>
     </div>
 
