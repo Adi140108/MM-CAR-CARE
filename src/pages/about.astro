@@ -6,6 +6,9 @@ import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 
 const title = "About Us | MM Car Care - Premium Automotive Workshop";
 const description = "MM Car Care के इतिहास, अत्याधुनिक उपकरणों और सटीकता के प्रति हमारी प्रतिबद्धता के बारे में जानें। हमारे अनुभवी सलाहकारों से जुड़ें।";
+
+const base = import.meta.env.BASE_URL;
+const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
 ---
 
 <Layout title={title} description={description}>
@@ -32,7 +35,7 @@ const description = "MM Car Care के इतिहास, अत्याध�
     <section class="legacy-section section-padding border-b">
       <div class="container legacy-grid">
         <div class="legacy-image-area">
-          <img src="/about-signboard.jpg" alt="Mata Marai Car Workshop Signboard" />
+          <img src={`${cleanBase}/about-signboard.jpg`} alt="Mata Marai Car Workshop Signboard" />
         </div>
         <div class="legacy-text">
           <span class="label-uppercase section-tag" lang="en">OUR LEGACY</span>
@@ -103,7 +106,7 @@ const description = "MM Car Care के इतिहास, अत्याध�
           </div>
         </div>
         <div class="philosophy-visual">
-          <img src="/about-features.png" alt="Marai Mata Car Workshop Features" />
+          <img src={`${cleanBase}/about-features.png`} alt="Marai Mata Car Workshop Features" />
         </div>
       </div>
     </section>
