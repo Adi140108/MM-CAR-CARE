@@ -42,19 +42,19 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
     <!-- Specs / Performance Metrics Section -->
     <section class="specs-band border-b">
       <div class="container specs-grid">
-        <div class="spec-item">
+        <div class="spec-item reveal">
           <span class="display-md spec-value" lang="en">10+ YEARS</span>
           <span class="label-uppercase spec-label">उत्कृष्ट अनुभव</span>
         </div>
-        <div class="spec-item">
+        <div class="spec-item reveal reveal-delay-1">
           <span class="display-md spec-value" lang="en">5,000+</span>
           <span class="label-uppercase spec-label">संतुष्ट ग्राहक</span>
         </div>
-        <div class="spec-item">
+        <div class="spec-item reveal reveal-delay-2">
           <span class="display-md spec-value" lang="en">100%</span>
           <span class="label-uppercase spec-label">गुणवत्ता की गारंटी</span>
         </div>
-        <div class="spec-item">
+        <div class="spec-item reveal reveal-delay-3">
           <span class="display-md spec-value" lang="en">EXPERT</span>
           <span class="label-uppercase spec-label">प्रमाणित मैकेनिक</span>
         </div>
@@ -64,7 +64,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
     <!-- Services Overview Section -->
     <section class="services-section section-padding border-b">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <span class="label-uppercase section-tag" lang="en">WHAT WE DO</span>
           <h2 class="display-lg section-title" lang="en">OUR EXPERTISE</h2>
           <p class="section-intro">
@@ -74,7 +74,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
 
         <div class="grid-4 services-grid">
           <!-- Card 1: Car Service -->
-          <div class="photo-card">
+          <div class="photo-card reveal hover-lift">
             <img src={`${cleanBase}/car-service.png`} alt="Engine Car Service" />
             <span class="label-uppercase card-tag" lang="en">MAINTENANCE & TUNE-UP</span>
             <h3 class="title-lg card-heading" lang="en">CAR SERVICE</h3>
@@ -85,7 +85,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
           </div>
 
           <!-- Card 2: Foam Wash -->
-          <div class="photo-card">
+          <div class="photo-card reveal reveal-delay-1 hover-lift">
             <img src={`${cleanBase}/foam-wash.png`} alt="Premium Foam Wash" />
             <span class="label-uppercase card-tag" lang="en">DEEP CLEANING</span>
             <h3 class="title-lg card-heading" lang="en">FOAM WASH</h3>
@@ -96,7 +96,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
           </div>
 
           <!-- Card 3: AC Service -->
-          <div class="photo-card">
+          <div class="photo-card reveal reveal-delay-2 hover-lift">
             <img src={`${cleanBase}/ac-service.png`} alt="AC Services" />
             <span class="label-uppercase card-tag" lang="en">COOLING & CLIMATE</span>
             <h3 class="title-lg card-heading" lang="en">AC SERVICES</h3>
@@ -107,7 +107,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
           </div>
 
           <!-- Card 4: Diagnostics -->
-          <div class="photo-card">
+          <div class="photo-card reveal reveal-delay-3 hover-lift">
             <img src={`${cleanBase}/diagnostics.png`} alt="System Diagnosis" />
             <span class="label-uppercase card-tag" lang="en">OBD SCANNING & SENSORS</span>
             <h3 class="title-lg card-heading" lang="en">SYSTEM DIAGNOSIS</h3>
@@ -118,7 +118,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
           </div>
 
           <!-- Card 5: Wheel Balancing -->
-          <div class="photo-card">
+          <div class="photo-card reveal hover-lift">
             <img src={`${cleanBase}/wheel-balancing.png`} alt="Tires & Wheel Balancing" />
             <span class="label-uppercase card-tag" lang="en">TYRE WEIGHT BALANCING</span>
             <h3 class="title-lg card-heading" lang="en">WHEEL BALANCING</h3>
@@ -129,7 +129,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
           </div>
 
           <!-- Card 6: Wheel Alignment -->
-          <div class="photo-card">
+          <div class="photo-card reveal reveal-delay-1 hover-lift">
             <img src={`${cleanBase}/wheel-alignment.png`} alt="3D Wheel Alignment" />
             <span class="label-uppercase card-tag" lang="en">STEERING CALIBRATION</span>
             <h3 class="title-lg card-heading" lang="en">WHEEL ALIGNMENT</h3>
@@ -140,7 +140,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
           </div>
 
           <!-- Card 7: Tyre Change -->
-          <div class="photo-card">
+          <div class="photo-card reveal reveal-delay-2 hover-lift">
             <img src={`${cleanBase}/tyre-change.png`} alt="Tyre Change Service" />
             <span class="label-uppercase card-tag" lang="en">TYRE CHANGE & FITTING</span>
             <h3 class="title-lg card-heading" lang="en">TYRE CHANGE</h3>
@@ -151,7 +151,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
           </div>
 
           <!-- Card 8: Jump Start -->
-          <div class="photo-card">
+          <div class="photo-card reveal reveal-delay-3 hover-lift">
             <img src={`${cleanBase}/jump-start.png`} alt="Jump Start Service" />
             <span class="label-uppercase card-tag" lang="en">BATTERY EMERGENCY</span>
             <h3 class="title-lg card-heading" lang="en">JUMP START</h3>
@@ -162,7 +162,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
           </div>
 
           <!-- Card 9: Body Repair & Painting -->
-          <div class="photo-card">
+          <div class="photo-card reveal hover-lift">
             <img src={`${cleanBase}/body-repair.png`} alt="Body Repair & Painting" />
             <span class="label-uppercase card-tag" lang="en">DENTING & PAINTING</span>
             <h3 class="title-lg card-heading" lang="en">BODY REPAIR</h3>
@@ -173,7 +173,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
           </div>
 
           <!-- Card 10: Air Fill & Greasing -->
-          <div class="photo-card">
+          <div class="photo-card reveal reveal-delay-1 hover-lift">
             <img src={`${cleanBase}/air-fill-greasing.png`} alt="Air Fill & Greasing" />
             <span class="label-uppercase card-tag" lang="en">TYRE AIR & LUBRICATION</span>
             <h3 class="title-lg card-heading" lang="en">AIR FILL & GREASING</h3>
@@ -189,7 +189,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
     <!-- Why Choose Us / Value Proposition Section (Dark soft background) -->
     <section class="value-prop-section section-padding border-b">
       <div class="container prop-container">
-        <div class="prop-text">
+        <div class="prop-text reveal">
           <span class="label-uppercase prop-tag" lang="en">THE PRECISE STANDARDS</span>
           <h2 class="display-lg prop-title" lang="en">ENGINEERED TO PERFECTION</h2>
           <p class="body-md prop-desc">
@@ -219,7 +219,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
             </li>
           </ul>
         </div>
-        <div class="prop-image-area">
+        <div class="prop-image-area reveal reveal-delay-2">
           <img src="https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&w=800&q=80" alt="Precision Mechanics" />
           <div class="corner-stripe"></div>
         </div>
@@ -229,7 +229,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
     <!-- Testimonials Section -->
     <section class="testimonials-section section-padding border-b">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <div class="tag-wrapper">
             <span class="label-uppercase section-tag" lang="en">SERVICE ARCHIVE</span>
             <div class="header-stripe"></div>
@@ -242,7 +242,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
 
         <div class="grid-3 testimonials-grid">
           <!-- Card 1 -->
-          <div class="testimonial-card border-accent-blue-light">
+          <div class="testimonial-card border-accent-blue-light reveal hover-lift">
             <div class="card-meta">
               <span class="job-id" lang="en">LOG #8402</span>
               <div class="stars">
@@ -274,7 +274,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
           </div>
 
           <!-- Card 2 -->
-          <div class="testimonial-card border-accent-blue-dark">
+          <div class="testimonial-card border-accent-blue-dark reveal reveal-delay-1 hover-lift">
             <div class="card-meta">
               <span class="job-id" lang="en">LOG #0843</span>
               <div class="stars">
@@ -306,7 +306,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
           </div>
 
           <!-- Card 3 -->
-          <div class="testimonial-card border-accent-red">
+          <div class="testimonial-card border-accent-red reveal reveal-delay-2 hover-lift">
             <div class="card-meta">
               <span class="job-id" lang="en">LOG #2041</span>
               <div class="stars">
@@ -343,7 +343,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
     <!-- Call To Action Band Photo -->
     <section class="cta-band-photo-section">
       <div class="cta-overlay"></div>
-      <div class="container cta-band-content">
+      <div class="container cta-band-content reveal">
         <h2 class="display-md cta-band-title" lang="en">EXPERIENCE THE ULTIMATE DRIVE</h2>
         <p class="cta-band-subtitle">
           क्या आपकी कार को सर्विस या चेकअप की आवश्यकता है? हमारे सलाहकारों से सीधे व्हाट्सएप पर बात करें।

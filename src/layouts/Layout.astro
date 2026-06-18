@@ -96,5 +96,35 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
 	</head>
 	<body>
 		<slot />
+
+		<script>
+			// Global Scroll Reveal Observer
+			const observerOptions = {
+				root: null,
+				rootMargin: '0px',
+				threshold: 0.1
+			};
+
+			const observer = new IntersectionObserver((entries, observer) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+						observer.unobserve(entry.target); // Stop observing once visible
+					}
+				});
+			}, observerOptions);
+
+			const initObserver = () => {
+				const revealElements = document.querySelectorAll('.reveal');
+				revealElements.forEach(el => observer.observe(el));
+			};
+
+			// Initialize on DOM ready
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', initObserver);
+			} else {
+				initObserver();
+			}
+		</script>
 	</body>
 </html>

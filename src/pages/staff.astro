@@ -60,14 +60,14 @@ const staffRoles = [
     <!-- Page Title Header -->
     <section class="page-header">
       <div class="container header-inner">
-        <div class="m-stripe page-stripe">
+        <div class="m-stripe page-stripe animate-fade-in-up delay-1">
           <span class="blue-light"></span>
           <span class="blue-dark"></span>
           <span class="red"></span>
         </div>
-        <span class="label-uppercase tracking-tag" lang="en">THE EXPERT TEAM</span>
-        <h1 class="display-lg page-title" lang="en">OUR STAFF</h1>
-        <p class="page-subtitle">
+        <span class="label-uppercase tracking-tag animate-fade-in-up delay-1" lang="en">THE EXPERT TEAM</span>
+        <h1 class="display-lg page-title animate-fade-in-up delay-2" lang="en">OUR STAFF</h1>
+        <p class="page-subtitle animate-fade-in-up delay-3">
           हमारी वर्कशॉप में कार्यरत समर्पित और प्रमाणित विशेषज्ञों की टीम। बिना किसी समझौते के उच्च स्तरीय सर्विस।
         </p>
       </div>
@@ -77,8 +77,8 @@ const staffRoles = [
     <section class="staff-grid-section section-padding">
       <div class="container">
         <div class="staff-grid">
-          {staffRoles.map(role => (
-            <div class="staff-card border-b">
+          {staffRoles.map((role, index) => (
+            <div class={`staff-card border-b reveal hover-lift reveal-delay-${index % 3}`}>
               <div class="staff-card-stripe">
                 <span class="blue-light"></span>
                 <span class="blue-dark"></span>

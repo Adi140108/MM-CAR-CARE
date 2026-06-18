@@ -18,14 +18,14 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
     <!-- Page Header (Minimal high-contrast style from DESIGN.md) -->
     <section class="page-header">
       <div class="container header-inner">
-        <div class="m-stripe page-stripe">
+        <div class="m-stripe page-stripe animate-fade-in-up delay-1">
           <span class="blue-light"></span>
           <span class="blue-dark"></span>
           <span class="red"></span>
         </div>
-        <span class="label-uppercase tracking-tag" lang="en">SINCE 2016</span>
-        <h1 class="display-lg page-title" lang="en">ABOUT US</h1>
-        <p class="page-subtitle">
+        <span class="label-uppercase tracking-tag animate-fade-in-up delay-1" lang="en">SINCE 2016</span>
+        <h1 class="display-lg page-title animate-fade-in-up delay-2" lang="en">ABOUT US</h1>
+        <p class="page-subtitle animate-fade-in-up delay-3">
           गुणवत्ता, ईमानदारी और अत्याधुनिक तकनीक के साथ निवाड़ी (मध्य प्रदेश) में आपकी पसंदीदा कार केयर वर्कशॉप।
         </p>
       </div>
@@ -34,10 +34,10 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
     <!-- Legacy / History Section -->
     <section class="legacy-section section-padding border-b">
       <div class="container legacy-grid">
-        <div class="legacy-image-area">
+        <div class="legacy-image-area reveal">
           <img src={`${cleanBase}/about-signboard.jpg`} alt="Mata Marai Car Workshop Signboard" />
         </div>
-        <div class="legacy-text">
+        <div class="legacy-text reveal reveal-delay-2">
           <span class="label-uppercase section-tag" lang="en">OUR LEGACY</span>
           <h2 class="display-md section-title" lang="en">THE JOURNEY OF PRECISION</h2>
           <p class="body-md paragraph-gap">
@@ -53,7 +53,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
     <!-- Detailed Workshop Stats / Features -->
     <section class="workshop-features section-padding border-b">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <span class="label-uppercase section-tag" lang="en">THE WORKSHOP</span>
           <h2 class="display-lg section-title" lang="en">MODERN FACILITIES</h2>
           <p class="section-intro">
@@ -62,17 +62,17 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
         </div>
 
         <div class="grid-3 features-grid">
-          <div class="spec-cell">
+          <div class="spec-cell reveal hover-lift">
             <span class="display-sm spec-number" lang="en">01</span>
             <strong class="title-sm cell-header" lang="en">ADVANCED LIFTS</strong>
             <p class="body-sm">सुरक्षित और सटीक काम के लिए अत्याधुनिक टू-पोस्ट और फोर-पोस्ट हाइड्रोलिक लिफ्ट्स।</p>
           </div>
-          <div class="spec-cell">
+          <div class="spec-cell reveal reveal-delay-1 hover-lift">
             <span class="display-sm spec-number" lang="en">02</span>
             <strong class="title-sm cell-header" lang="en">DIAGNOSTIC BAY</strong>
             <p class="body-sm">कार में होने वाली किसी भी इलेक्ट्रॉनिक समस्या को तुरंत पकड़ने के लिए ओबीडी (OBD) कंप्यूटर टूल्स।</p>
           </div>
-          <div class="spec-cell">
+          <div class="spec-cell reveal reveal-delay-2 hover-lift">
             <span class="display-sm spec-number" lang="en">03</span>
             <strong class="title-sm cell-header" lang="en">BALANCING BAY</strong>
             <p class="body-sm">टायर और व्हील बैलेंसिंग के लिए आधुनिक कंप्यूटर-नियंत्रित मशीनें ताकि सुगम और सुरक्षित ड्राइविंग मिले।</p>
@@ -84,7 +84,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
     <!-- Core Philosophy Section -->
     <section class="philosophy-section section-padding">
       <div class="container philosophy-inner">
-        <div class="philosophy-text">
+        <div class="philosophy-text reveal">
           <span class="label-uppercase section-tag" lang="en">COMMITMENT TO PRECISION</span>
           <h2 class="display-md section-title" lang="en">OUR THREE PILLARS</h2>
           <p class="body-md">
@@ -105,7 +105,7 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
             </div>
           </div>
         </div>
-        <div class="philosophy-visual">
+        <div class="philosophy-visual reveal reveal-delay-2">
           <img src={`${cleanBase}/about-features.png`} alt="Marai Mata Car Workshop Features" />
         </div>
       </div>

@@ -181,14 +181,14 @@ const services = [
     <!-- Page Title Header -->
     <section class="page-header">
       <div class="container header-inner">
-        <div class="m-stripe page-stripe">
+        <div class="m-stripe page-stripe animate-fade-in-up delay-1">
           <span class="blue-light"></span>
           <span class="blue-dark"></span>
           <span class="red"></span>
         </div>
-        <span class="label-uppercase tracking-tag" lang="en">OUR EXPERTISE</span>
-        <h1 class="display-lg page-title" lang="en">PRECISION SERVICES</h1>
-        <p class="page-subtitle">
+        <span class="label-uppercase tracking-tag animate-fade-in-up delay-1" lang="en">OUR EXPERTISE</span>
+        <h1 class="display-lg page-title animate-fade-in-up delay-2" lang="en">PRECISION SERVICES</h1>
+        <p class="page-subtitle animate-fade-in-up delay-3">
           हम आपकी कार को सर्वश्रेष्ठ सुरक्षा और यांत्रिक प्रदर्शन प्रदान करने के लिए प्रतिबद्ध हैं। नीचे हमारी प्रमुख सेवाओं की सूची दी गई है।
         </p>
       </div>
@@ -199,7 +199,7 @@ const services = [
       {services.map((service, index) => (
         <div id={service.id} class={`service-block border-b ${index % 2 === 1 ? 'block-reverse' : ''}`}>
           <div class="container block-inner">
-            <div class="service-image-area">
+            <div class="service-image-area reveal">
               <img src={`${cleanBase}${service.image}`} alt={service.title} />
               <div class="m-stripe-overlay">
                 <span class="blue-light"></span>
@@ -207,7 +207,7 @@ const services = [
                 <span class="red"></span>
               </div>
             </div>
-            <div class="service-details">
+            <div class="service-details reveal reveal-delay-1">
               <span class="label-uppercase category-tag" lang="en">SERVICE {index + 1}</span>
               <h2 class="display-md service-name" lang="en">{service.title}</h2>
               <h3 class="hindi-subtitle">{service.hindiTitle}</h3>
