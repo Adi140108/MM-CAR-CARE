@@ -49,37 +49,37 @@ const navItems = [
       <span class="bar"></span>
     </button>
   </div>
-
-  <!-- Mobile Drawer overlay -->
-  <div class="mobile-drawer" id="mobileDrawer">
-    <div class="m-stripe">
-      <span class="blue-light"></span>
-      <span class="blue-dark"></span>
-      <span class="red"></span>
-    </div>
-    <div class="drawer-header">
-      <div class="drawer-logo-area">
-        <img src={`${cleanBase}/logo.png`} alt="MM Car Workshop Logo" class="drawer-logo" />
-        <span class="brand-name" lang="en">MM CAR WORKSHOP</span>
-      </div>
-      <button class="close-btn" id="menuClose" aria-label="Close Menu">×</button>
-    </div>
-    <nav class="drawer-links">
-      {navItems.map(item => (
-        <a 
-          href={item.path} 
-          class={`drawer-link ${currentPath === item.path ? 'active' : ''}`}
-          lang="en"
-        >
-          {item.name}
-        </a>
-      ))}
-      <a href="https://wa.me/919814269633?text=नमस्ते%20MM%20Car%20Care!%20मुझे%20बुकिंग%20करवानी%20है।" class="btn-primary drawer-cta" lang="en">
-        BOOK NOW
-      </a>
-    </nav>
-  </div>
 </header>
+
+<!-- Mobile Drawer overlay (outside header to prevent sticky container positioning bugs) -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="m-stripe">
+    <span class="blue-light"></span>
+    <span class="blue-dark"></span>
+    <span class="red"></span>
+  </div>
+  <div class="drawer-header">
+    <div class="drawer-logo-area">
+      <img src={`${cleanBase}/logo.png`} alt="MM Car Workshop Logo" class="drawer-logo" />
+      <span class="brand-name" lang="en">MM CAR WORKSHOP</span>
+    </div>
+    <button class="close-btn" id="menuClose" aria-label="Close Menu">×</button>
+  </div>
+  <nav class="drawer-links">
+    {navItems.map(item => (
+      <a 
+        href={item.path} 
+        class={`drawer-link ${currentPath === item.path ? 'active' : ''}`}
+        lang="en"
+      >
+        {item.name}
+      </a>
+    ))}
+    <a href="https://wa.me/919814269633?text=नमस्ते%20MM%20Car%20Care!%20मुझे%20बुकिंग%20करवानी%20है।" class="btn-primary drawer-cta" lang="en">
+      BOOK NOW
+    </a>
+  </nav>
+</div>
 
 <style>
   .top-nav-container {
@@ -94,7 +94,14 @@ const navItems = [
     transition: height var(--transition-speed) var(--transition-easing),
                 background-color var(--transition-speed) var(--transition-easing),
                 box-shadow var(--transition-speed) var(--transition-easing),
-                backdrop-filter var(--transition-speed) var(--transition-easing);
+                backdrop-filter var(--transition-speed) var(--transition-easing),
+                transform 0.3s ease-in-out;
+    will-change: transform, height;
+  }
+
+  /* Scrolled shrinking states and scrolling hidden states */
+  .top-nav-container.header-hidden {
+    transform: translateY(-100%);
   }
 
   /* Scrolled shrinking states */
@@ -237,20 +244,27 @@ const navItems = [
   .mobile-drawer {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
+    transform: translateX(100%);
+    visibility: hidden;
+    pointer-events: none;
     width: 100%;
     max-width: 320px;
     height: 100vh;
     background-color: var(--color-canvas);
     z-index: 1000;
-    transition: right 0.35s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: transform 0.3s cubic-bezier(0.77, 0, 0.175, 1),
+                visibility 0.3s cubic-bezier(0.77, 0, 0.175, 1);
     box-shadow: -5px 0 25px rgba(0,0,0,0.5);
     display: flex;
     flex-direction: column;
+    will-change: transform, visibility;
   }
 
   .mobile-drawer.open {
-    right: 0;
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .drawer-header {
@@ -311,6 +325,7 @@ const navItems = [
   const toggleBtn = document.getElementById('menuToggle');
   const closeBtn = document.getElementById('menuClose');
   const drawer = document.getElementById('mobileDrawer');
+  const header = document.getElementById('mainHeader');
 
   if (toggleBtn && drawer) {
     toggleBtn.addEventListener('click', () => {
@@ -326,12 +341,23 @@ const navItems = [
     });
   }
 
-  // Shrinking navbar scroll logic with hysteresis to prevent flickering
-  const header = document.getElementById('mainHeader');
+  // Close drawer if user clicks on a link
+  const drawerLinks = drawer?.querySelectorAll('.drawer-link');
+  drawerLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      drawer?.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Shrinking & Hide-on-scroll-down navbar scroll logic
   let isScrolled = false;
+  let lastScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
 
   const handleScroll = () => {
     const scrollPos = window.scrollY;
+
+    // 1. Shrinking class logic
     if (!isScrolled && scrollPos > 80) {
       header?.classList.add('scrolled');
       isScrolled = true;
@@ -339,6 +365,23 @@ const navItems = [
       header?.classList.remove('scrolled');
       isScrolled = false;
     }
+
+    // 2. Hide on scroll down, show on scroll up (with guard for open drawer)
+    const isDrawerOpen = drawer?.classList.contains('open');
+    if (!isDrawerOpen && scrollPos > 150) {
+      if (scrollPos > lastScrollY) {
+        // Scrolling down -> hide header
+        header?.classList.add('header-hidden');
+      } else {
+        // Scrolling up -> show header
+        header?.classList.remove('header-hidden');
+      }
+    } else {
+      // Near top or drawer open -> show header
+      header?.classList.remove('header-hidden');
+    }
+
+    lastScrollY = scrollPos;
   };
 
   window.addEventListener('scroll', handleScroll, { passive: true });
