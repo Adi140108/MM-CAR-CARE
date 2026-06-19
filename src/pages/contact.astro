@@ -329,6 +329,25 @@ const description = "MM Car Care से संपर्क करें। अ�
     border-color: var(--color-primary);
   }
 
+  /* Date & Time Picker visibility in dark mode */
+  .booking-form input[type="date"],
+  .booking-form input[type="time"] {
+    color-scheme: dark;
+  }
+
+  .booking-form input[type="date"]::-webkit-calendar-picker-indicator,
+  .booking-form input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity var(--transition-speed);
+  }
+
+  .booking-form input[type="date"]::-webkit-calendar-picker-indicator:hover,
+  .booking-form input[type="time"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+  }
+
   .booking-form textarea {
     min-height: 100px;
     resize: vertical;
