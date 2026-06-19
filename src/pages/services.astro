@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 
 const title = "Our Services | MM Car Care - Auto Repair & Diagnostics";
-const description = "MM Car Care के ऑटो मेंटेनेंस, एसी सर्विस, सिस्टम डायग्नोसिस, व्हील बैलेंसिंग, व्हील अलाइनमेंट और डेंटिंग पेंटिंग सेवाओं की पूरी सूची देखें। बुकिंग के लिए व्हाट्सएप पर क्लिक करें।";
+const description = "MM Car Care के ऑटो मेंटेनेंस, एसी सर्विस, सिस्टम डायग्नोसिस, व्हील बैलेंसिंग, व्हील अलाइनमेंट, डेंटिंग पेंटिंग और टूर एंड ट्रेवल्स (ओला-उबर कैब बुकिंग) सेवाओं की पूरी सूची देखें।";
 
 const base = import.meta.env.BASE_URL;
 const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
@@ -170,6 +170,22 @@ const services = [
     ],
     price: "₹20 (हवा) / ₹200 (ग्रीसिंग)",
     waMessage: "नमस्ते MM Car Care! मुझे अपनी कार के टायर हवा चेक और ग्रीसिंग वर्क के लिए बुकिंग करनी है।"
+  },
+  {
+    id: "travels",
+    title: "TOUR & TRAVELS (OLA & UBER CAB SERVICE)",
+    hindiTitle: "टूर एंड ट्रेवल्स (ओला और उबर कैब बुकिंग)",
+    image: "/tour-travels.png",
+    desc: "शादी, पार्टी, पिकनिक और आउटस्टेशन यात्राओं के लिए बेहतरीन टूर एंड ट्रेवल्स कैब बुकिंग और ओला-उबर कंसल्टेंसी सर्विस। निवाड़ी शहर में सही रेंट और सुरक्षित यात्रा के लिए हमारी कारों को बुक करें।",
+    features: [
+      "शादी, पार्टी और पिकनिक के लिए विशेष बुकिंग",
+      "निवाड़ी शहर और आउटस्टेशन के लिए राउंड-ट्रिप सर्विस",
+      "ओला (Ola) और उबर (Uber) कैब सर्विस कंसल्टेंसी",
+      "सही और किफायती रेंट (Affordable Rates) की गारंटी",
+      "अनुभवी ड्राइवर्स और आरामदायक सुरक्षित यात्रा"
+    ],
+    price: "किफायती दरें (Affordable Rates)",
+    waMessage: "नमस्ते MM Car Workshop! मुझे शादी/पार्टी/पिकनिक/यात्रा के लिए ओला-उबर कैब बुकिंग (टूर एंड ट्रेवल्स) की जानकारी और बुकिंग चाहिए।"
   }
 ];
 ---
