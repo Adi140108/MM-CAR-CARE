@@ -1,0 +1,394 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+
+const title = "Our Work | Video Showcase & Live Demos | MM Car Workshop";
+const description = "MM Car Care के गैराज में की जाने वाली 3D व्हील अलाइनमेंट, फ़ोम वॉश, इंजन डायग्नोस्टिक्स और ट्यूनिंग के असली वीडियो देखें। 100% पारदर्शिता की गारंटी।";
+
+const base = import.meta.env.BASE_URL;
+const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
+
+const workVideos = [
+  {
+    title: "3D Wheel Alignment (3D व्हील अलाइनमेंट)",
+    tag: "PRECISION ALIGNMENT",
+    description: "कम्प्यूटरीकृत 3D तकनीक द्वारा कार के स्टीयरिंग एंगल और टायरों का सटीक अलाइनमेंट कार्य। यह टायर के असमान घिसने को रोकता है और हाईवे पर कार को पूर्ण नियंत्रण में रखता है।",
+    poster: "/wheel-alignment.png",
+    videoSrc: "/wheel alignment video.mp4"
+  },
+  {
+    title: "Premium Foam Wash (डीप फ़ोम वॉश)",
+    tag: "CAR WASH & WAX",
+    description: "हाई-प्रेशर स्प्रे फ़ोम द्वारा कार की एक्सटीरियर बॉडी की डीप क्लीनिंग, अंडरबॉडी वॉश और इंटीरियर वैक्यूमिंग। गाड़ी को बिल्कुल शोरूम जैसी चमक और सुरक्षा देने के लिए उत्कृष्ट कोटिंग।",
+    poster: "/foam-wash.png",
+    videoSrc: "/foam wash.mp4"
+  }
+];
+---
+
+<Layout title={title} description={description}>
+  <Navigation />
+
+  <main>
+    <!-- Page Title Header -->
+    <section class="page-header">
+      <div class="container header-inner">
+        <div class="m-stripe page-stripe animate-fade-in-up delay-1">
+          <span class="blue-light"></span>
+          <span class="blue-dark"></span>
+          <span class="red"></span>
+        </div>
+        <span class="label-uppercase tracking-tag animate-fade-in-up delay-1" lang="en">WORK DEMONSTRATION</span>
+        <h1 class="display-lg page-title animate-fade-in-up delay-2" lang="en">OUR WORK</h1>
+        <p class="page-subtitle animate-fade-in-up delay-3">
+          हमारी वर्कशॉप में किए जाने वाले रिपेयर कार्यों, कार डिटेलिंग और सर्विसिंग के लाइव वीडियो। हम काम में पूर्ण पारदर्शिता और गुणवत्ता सुनिश्चित करते हैं।
+        </p>
+      </div>
+    </section>
+
+    <!-- Video Showcase Section -->
+    <section class="work-gallery-section section-padding">
+      <div class="container">
+        
+        <!-- Featured Main Video Showcase -->
+        <div class="featured-video-container">
+          <div class="featured-video-card reveal">
+            <div class="m-stripe">
+              <span class="blue-light"></span>
+              <span class="blue-dark"></span>
+              <span class="red"></span>
+            </div>
+            
+            <div class="card-inner-layout">
+              <div class="featured-video-player">
+                <video 
+                  src={`${cleanBase}/mm workshop main video.mp4`} 
+                  poster={`${cleanBase}/about-features.png`} 
+                  controls 
+                  preload="metadata"
+                  playsinline
+                >
+                </video>
+              </div>
+              
+              <div class="featured-video-info">
+                <span class="label-uppercase video-tag" lang="en">WORKSHOP OVERVIEW</span>
+                <h2 class="title-lg video-title">वर्कशॉप का एक नज़ारा (Live Showcase)</h2>
+                <p class="body-sm video-desc">
+                  हमारे निवाड़ी (मध्य प्रदेश) स्थित वर्कशॉप का एक विस्तृत ओवरव्यू वीडियो। देखें कि कैसे हमारे एक्सपर्ट तकनीशियन कार रिपेयरिंग, अलाइनमेंट, टायर फिटिंग और इलेक्ट्रॉनिक डायग्नोस्टिक्स के कार्यों को सटीकता से पूरा करते हैं।
+                </p>
+                
+                <a 
+                  href="https://wa.me/919814269633?text=नमस्ते%20MM%20Car%20Care!%20मुझे%20अपनी%20कार%20की%20सर्विसिंग%20के%20लिए%20अपॉइंटमेंट%20चाहिए।" 
+                  class="btn-primary featured-cta-btn" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  lang="en"
+                >
+                  BOOK YOUR VISIT NOW
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Cards Grid -->
+        <h2 class="display-sm grid-header-title reveal" lang="en">SERVICE DEMO VIDEOS</h2>
+        
+        <div class="video-grid">
+          {workVideos.map((video, index) => (
+            <div class={`video-card reveal hover-lift reveal-delay-${index % 2}`}>
+              <div class="video-player-wrapper">
+                <video 
+                  src={`${cleanBase}${video.videoSrc}`} 
+                  poster={`${cleanBase}${video.poster}`} 
+                  controls 
+                  preload="metadata"
+                  playsinline
+                >
+                </video>
+              </div>
+              
+              <div class="video-card-info">
+                <span class="label-uppercase video-tag" lang="en">{video.tag}</span>
+                <h3 class="title-lg video-title">{video.title}</h3>
+                <p class="body-sm video-desc">{video.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- YouTube Call-to-action Section -->
+    <section class="youtube-promo-section section-padding">
+      <div class="container">
+        <div class="youtube-promo-card reveal">
+          <div class="yt-icon-wrapper">
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+          <h2 class="display-sm yt-title" lang="en">WATCH MORE ON YOUTUBE</h2>
+          <p class="body-md yt-desc">
+            क्या आप और अधिक लाइव कार रिपेयरिंग और ग्राहक समीक्षाओं के वीडियो देखना चाहते हैं? हमारे ऑफिशियल यूट्यूब चैनल को सब्सक्राइब करें और देखें कि हम हर सर्विस कैसे करते हैं।
+          </p>
+          <a 
+            href="https://youtube.com/@mmcarworkshopniwari?si=7v3ODBOc8E3bDhCK" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn-primary btn-youtube"
+            lang="en"
+          >
+            VISIT YOUTUBE CHANNEL
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+</Layout>
+
+<style>
+  /* Header styling */
+  .page-header {
+    background-color: var(--color-surface-soft);
+    padding: var(--spacing-xxl) 0;
+    border-bottom: 1px solid var(--color-hairline);
+  }
+
+  .header-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .page-stripe {
+    width: 80px;
+    margin: 0 auto var(--spacing-md);
+  }
+
+  .tracking-tag {
+    color: var(--color-m-red);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .page-title {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .page-subtitle {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-body);
+  }
+
+  /* Video Gallery Section styling */
+  .work-gallery-section {
+    background-color: var(--color-canvas);
+  }
+
+  .featured-video-container {
+    margin-bottom: var(--spacing-xxl);
+  }
+
+  .featured-video-card {
+    background-color: var(--color-surface-card);
+    border: 1px solid var(--color-hairline);
+    display: flex;
+    flex-direction: column;
+    border-radius: 0px;
+    overflow: hidden;
+  }
+
+  .card-inner-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .featured-video-player {
+    position: relative;
+    aspect-ratio: 16/9;
+    background-color: #000;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-hairline);
+  }
+
+  .featured-video-player video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .featured-video-info {
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .featured-cta-btn {
+    margin-top: var(--spacing-md);
+    font-size: 12px;
+    padding: 14px 28px;
+    align-self: flex-start;
+    text-align: center;
+  }
+
+  @media (min-width: 992px) {
+    .card-inner-layout {
+      flex-direction: row;
+    }
+    .featured-video-player {
+      width: 60%;
+      border-bottom: none;
+      border-right: 1px solid var(--color-hairline);
+    }
+    .featured-video-info {
+      width: 40%;
+      padding: var(--spacing-xl);
+      justify-content: center;
+    }
+  }
+
+  .grid-header-title {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    border-bottom: 1px solid var(--color-hairline);
+    padding-bottom: var(--spacing-xs);
+  }
+
+  /* Video Grid styling */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  @media (max-width: 768px) {
+    .video-grid {
+      grid-template-columns: 1fr;
+    }
+    .grid-header-title {
+      font-size: 24px;
+      margin-bottom: var(--spacing-md);
+    }
+  }
+
+  .video-card {
+    background-color: var(--color-surface-card);
+    border: 1px solid var(--color-hairline);
+    display: flex;
+    flex-direction: column;
+    border-radius: 0px;
+    overflow: hidden;
+    transition: border-color var(--transition-speed);
+  }
+
+  .video-card:hover {
+    border-color: var(--color-hairline-strong);
+  }
+
+  .video-player-wrapper {
+    position: relative;
+    aspect-ratio: 16/9;
+    background-color: #000;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-hairline);
+  }
+
+  .video-player-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .video-card-info {
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    flex-grow: 1;
+  }
+
+  .video-tag {
+    color: var(--color-m-blue-dark);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+
+  .video-title {
+    color: var(--color-primary);
+    font-family: var(--font-body);
+    font-weight: 700;
+    margin-top: -5px;
+  }
+
+  .video-desc {
+    line-height: 1.6;
+    color: var(--color-body);
+  }
+
+  /* YouTube Promo Section */
+  .youtube-promo-section {
+    background-color: var(--color-surface-soft);
+    text-align: center;
+  }
+
+  .youtube-promo-card {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  .yt-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(226, 39, 24, 0.1);
+    border: 1px solid var(--color-m-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: var(--color-m-red);
+    margin-bottom: var(--spacing-xs);
+    border-radius: 0px;
+  }
+
+  .yt-title {
+    color: var(--color-primary);
+  }
+
+  .yt-desc {
+    color: var(--color-body);
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .btn-youtube {
+    background-color: var(--color-m-red);
+    color: #ffffff;
+    border: 1px solid var(--color-m-red);
+    font-size: 13px;
+    padding: 16px 32px;
+  }
+
+  .btn-youtube:hover {
+    background-color: transparent;
+    color: var(--color-m-red);
+  }
+</style>
