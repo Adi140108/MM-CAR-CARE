@@ -112,7 +112,20 @@ const description = "MM Car Care से संपर्क करें। अ�
                   <option value="Jump Start">जम्प स्टार्ट (Jump Start)</option>
                   <option value="Denting & Painting">डेंटिंग पेंटिंग (Denting Painting)</option>
                   <option value="Air Fill & Greasing">टायर हवा और ग्रीसिंग (Air Fill & Greasing)</option>
+                  <option value="Tour & Travels (Ola/Uber)">टूर एंड ट्रेवल्स (Tour & Travels Cab Service)</option>
                 </select>
+              </div>
+
+              <!-- Date and Time Row -->
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="bookingDate" class="label-uppercase field-label">दिनांक / DATE *</label>
+                  <input type="date" id="bookingDate" required />
+                </div>
+                <div class="form-group">
+                  <label for="bookingTime" class="label-uppercase field-label">समय / TIME *</label>
+                  <input type="time" id="bookingTime" required />
+                </div>
               </div>
 
               <!-- Custom Text Area -->
@@ -283,6 +296,18 @@ const description = "MM Car Care से संपर्क करें। अ�
     gap: var(--spacing-xs);
   }
 
+  .form-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+  }
+  @media (max-width: 480px) {
+    .form-row-2 {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+  }
+
   .field-label {
     font-size: 11px;
     color: var(--color-body-strong);
@@ -364,7 +389,18 @@ const description = "MM Car Care से संपर्क करें। अ�
       const phone = (document.getElementById('clientPhone') as HTMLInputElement).value;
       const car = (document.getElementById('carModel') as HTMLInputElement).value;
       const service = (document.getElementById('serviceType') as HTMLSelectElement).value;
+      const date = (document.getElementById('bookingDate') as HTMLInputElement).value;
+      const time = (document.getElementById('bookingTime') as HTMLInputElement).value;
       const message = (document.getElementById('userMessage') as HTMLTextAreaElement).value;
+
+      // Format date from YYYY-MM-DD to DD/MM/YYYY
+      let formattedDate = date;
+      if (date) {
+        const dateParts = date.split('-');
+        if (dateParts.length === 3) {
+          formattedDate = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
+        }
+      }
 
       // Construct WhatsApp redirect string
       let text = `नमस्ते MM Car Care! मैं अपॉइंटमेंट बुक करना चाहता हूँ।\n\n`;
@@ -372,6 +408,8 @@ const description = "MM Car Care से संपर्क करें। अ�
       text += `• मोबाइल: ${phone}\n`;
       text += `• कार मॉडल: ${car}\n`;
       text += `• सेवा: ${service}\n`;
+      text += `• दिनांक: ${formattedDate}\n`;
+      text += `• समय: ${time}\n`;
       
       if (message.trim()) {
         text += `• विवरण: ${message}\n`;
