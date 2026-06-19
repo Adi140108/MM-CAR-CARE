@@ -20,8 +20,8 @@ const whatsappUrl = `https://wa.me/${phoneNumber}?text=${urlEncodedMessage}`;
   rel="noopener noreferrer" 
   aria-label="Contact us on WhatsApp"
 >
-  <span class="tooltip-text" lang="hi-IN">हमसे बात करें</span>
   <i class="fa-brands fa-whatsapp"></i>
+  <span class="whatsapp-text" lang="hi-IN">मैं आपकी क्या मदद करूँ</span>
 </a>
 
 <style>
@@ -29,61 +29,71 @@ const whatsappUrl = `https://wa.me/${phoneNumber}?text=${urlEncodedMessage}`;
     position: fixed;
     bottom: var(--spacing-lg);
     right: var(--spacing-lg);
-    width: 60px;
-    height: 60px;
     background-color: #25d366;
     color: white;
-    border-radius: 50%;
+    border-radius: 9999px; /* Pill shape as requested in the mockup image */
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 30px;
+    gap: var(--spacing-xs);
+    padding: 14px 28px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     z-index: 99;
     text-decoration: none;
     transition: transform var(--transition-speed) var(--transition-easing),
                 background-color var(--transition-speed) var(--transition-easing);
+    width: auto !important;
+    height: auto !important;
   }
 
   .whatsapp-float-btn:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     background-color: #128c7e;
   }
 
-  .tooltip-text {
-    visibility: hidden;
-    width: 100px;
-    background-color: var(--color-surface-card);
-    color: var(--color-primary);
-    text-align: center;
-    border-radius: 4px;
-    padding: 6px 10px;
-    position: absolute;
-    right: 75px;
-    font-size: 12px;
-    font-weight: 700;
-    white-space: nowrap;
-    border: 1px solid var(--color-hairline);
-    opacity: 0;
-    transition: opacity var(--transition-speed), visibility var(--transition-speed);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  .whatsapp-float-btn i {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .whatsapp-float-btn:hover .tooltip-text {
-    visibility: visible;
-    opacity: 1;
+  .whatsapp-text {
+    font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap !important;
+    line-height: 1;
   }
 
   @media (max-width: 768px) {
     .whatsapp-float-btn {
-      width: 50px;
-      height: 50px;
-      font-size: 24px;
+      padding: 12px 20px;
       bottom: var(--spacing-md);
       right: var(--spacing-md);
+      gap: var(--spacing-xxs);
+      width: auto !important;
+      height: auto !important;
     }
-    .tooltip-text {
-      display: none; /* Hide helper tooltips on small viewports */
+    .whatsapp-text {
+      font-size: 16px;
+    }
+    .whatsapp-float-btn i {
+      font-size: 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    /* To prevent taking too much screen space on very small viewports, we make it slightly more compact */
+    .whatsapp-float-btn {
+      padding: 10px 16px;
+      width: auto !important;
+      height: auto !important;
+    }
+    .whatsapp-text {
+      font-size: 14px;
+    }
+    .whatsapp-float-btn i {
+      font-size: 22px;
     }
   }
 </style>

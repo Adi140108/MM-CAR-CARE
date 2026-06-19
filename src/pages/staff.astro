@@ -7,11 +7,15 @@ import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 const title = "Our Staff | Expert Mechanics & Certified Technicians";
 const description = "MM Car Care के हमारे एक्सपर्ट मैकेनिकल, इलेक्ट्रिकल, एसी, डेंटिंग-पेंटिंग और वाशिंग स्टाफ से मिलें। बिना किसी समझौते के 100% गुणवत्तापूर्ण कार रिपेयर।";
 
+const base = import.meta.env.BASE_URL;
+const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
+
 const staffRoles = [
   {
     role: "WORKSHOP OWNER",
     hindiRole: "राजपाल सिंह (ओनर)",
     icon: "fa-solid fa-user-tie",
+    image: "/owner.png",
     description: "राजपाल सिंह जी के कुशल नेतृत्व और मार्गदर्शन में वर्कशॉप संचालित है। वे ग्राहकों को सर्वोत्तम सेवा, पारदर्शिता और गुणवत्ता सुनिश्चित करने के लिए हर रिपेयर कार्य की व्यक्तिगत निगरानी करते हैं।",
     waService: "Owner Consultation (ओनर राजपाल सिंह से संपर्क)"
   },
@@ -76,18 +80,51 @@ const staffRoles = [
     <!-- Staff Roles Cards Grid Section -->
     <section class="staff-grid-section section-padding">
       <div class="container">
+        <!-- Owner Card centered at the top -->
+        <div class="owner-container">
+          {staffRoles.filter(role => role.role === "WORKSHOP OWNER").map((role) => (
+            <div class="staff-card border-b reveal hover-lift owner-card">
+              <div class="staff-card-stripe">
+                <span class="blue-light"></span>
+                <span class="blue-dark"></span>
+                <span class="red"></span>
+              </div>
+              {role.image && (
+                <div class="staff-image-area">
+                  <img src={`${cleanBase}${role.image}`} alt={role.hindiRole} class="staff-image" />
+                </div>
+              )}
+              <div class="staff-info">
+                <span class="label-uppercase staff-role" lang="en">{role.role}</span>
+                <h2 class="title-lg staff-name">{role.hindiRole}</h2>
+                <p class="body-sm staff-desc">{role.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Other Staff Grid below -->
         <div class="staff-grid">
-          {staffRoles.map((role, index) => (
+          {staffRoles.filter(role => role.role !== "WORKSHOP OWNER").map((role, index) => (
             <div class={`staff-card border-b reveal hover-lift reveal-delay-${index % 3}`}>
               <div class="staff-card-stripe">
                 <span class="blue-light"></span>
                 <span class="blue-dark"></span>
                 <span class="red"></span>
               </div>
-              <div class="staff-info">
-                <div class="role-icon-wrapper">
-                  <i class={role.icon}></i>
+              
+              {role.image && (
+                <div class="staff-image-area">
+                  <img src={`${cleanBase}${role.image}`} alt={role.hindiRole} class="staff-image" />
                 </div>
+              )}
+              
+              <div class="staff-info">
+                {!role.image && (
+                  <div class="role-icon-wrapper">
+                    <i class={role.icon}></i>
+                  </div>
+                )}
                 <span class="label-uppercase staff-role" lang="en">{role.role}</span>
                 <h2 class="title-lg staff-name">{role.hindiRole}</h2>
                 
@@ -171,6 +208,23 @@ const staffRoles = [
     background-color: var(--color-canvas);
   }
 
+  .owner-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-xxl);
+  }
+
+  .owner-card {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .owner-card .staff-info {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
   .staff-grid {
     display: flex;
     flex-wrap: wrap;
@@ -189,6 +243,20 @@ const staffRoles = [
     border-radius: 0px;
     overflow: hidden;
     transition: border-color var(--transition-speed);
+  }
+
+  .staff-image-area {
+    width: 100%;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-hairline);
+  }
+
+  .staff-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   .staff-card:hover {
