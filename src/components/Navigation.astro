@@ -92,6 +92,9 @@ const navItems = [
     border-bottom: 1px solid var(--color-hairline);
     display: flex;
     align-items: center;
+    transform: translateZ(0); /* Force GPU layer to prevent flickering during compositor transitions */
+    backface-visibility: hidden;
+    perspective: 1000px;
     transition: height var(--transition-speed) var(--transition-easing),
                 background-color var(--transition-speed) var(--transition-easing),
                 box-shadow var(--transition-speed) var(--transition-easing),
@@ -102,7 +105,7 @@ const navItems = [
 
   /* Scrolled shrinking states and scrolling hidden states */
   .top-nav-container.header-hidden {
-    transform: translateY(-100%);
+    transform: translateY(-100%) translateZ(0);
   }
 
   /* Scrolled shrinking states */
@@ -385,10 +388,10 @@ const navItems = [
     // Prevent negative offset on iOS bounce
     const currentScrollY = scrollPos < 0 ? 0 : scrollPos;
 
-    // 1. Shrinking class logic
-    if (currentScrollY > 50) {
+    // 1. Shrinking class logic with hysteresis (100px to add, 20px to remove) to prevent height oscillation feedback loops
+    if (currentScrollY > 100) {
       header?.classList.add('scrolled');
-    } else {
+    } else if (currentScrollY < 20) {
       header?.classList.remove('scrolled');
     }
 

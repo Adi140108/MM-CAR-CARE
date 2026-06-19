@@ -20,19 +20,30 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
   <main>
     <!-- Hero Photo Band Section -->
     <section class="hero-section">
-      <div class="hero-bg-overlay"></div>
+      <div class="hero-bg-container">
+        <video 
+          src={`${cleanBase}/hero%20video.mp4`} 
+          poster="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&q=80"
+          autoplay 
+          muted 
+          playsinline 
+          class="hero-bg-video" 
+          id="hero-video"
+        ></video>
+        <div class="hero-bg-overlay"></div>
+      </div>
       <div class="container hero-content">
-        <div class="m-stripe mini-hero-stripe">
+        <div class="m-stripe mini-hero-stripe animate-fade-in-up">
           <span class="blue-light"></span>
           <span class="blue-dark"></span>
           <span class="red"></span>
         </div>
-        <span class="label-uppercase tracking-tag" lang="en">ESTABLISHED IN 2016</span>
-        <h1 class="display-xl hero-title" lang="en">THE ULTIMATE<br>CAR CARE</h1>
-        <p class="hero-subtitle">
+        <span class="label-uppercase tracking-tag animate-fade-in-up delay-1" lang="en">ESTABLISHED IN 2016</span>
+        <h1 class="display-xl hero-title animate-fade-in-up delay-2" lang="en">THE ULTIMATE<br>CAR CARE</h1>
+        <p class="hero-subtitle animate-fade-in-up delay-3">
           हम आपकी कार सर्विस, फ़ोम वॉश, एसी सर्विसिंग, कंप्यूटर डायग्नोस्टिक्स, व्हील बैलेंसिंग, अलाइनमेंट और टूर एंड ट्रेवल्स (ओला-उबर कैब बुकिंग) सेवाएं प्रदान करते हैं। हमारे निवाड़ी (मध्य प्रदेश) स्थित गैराज में आज ही आएं।
         </p>
-        <div class="hero-ctas">
+        <div class="hero-ctas animate-fade-in-up delay-4">
           <a href={`${cleanBase}/services`} class="btn-primary" lang="en">EXPLORE SERVICES</a>
           <a href={`${cleanBase}/contact`} class="btn-outline" lang="en">BOOK AN APPOINTMENT</a>
         </div>
@@ -375,6 +386,60 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
 
   <!-- Floating WhatsApp Widget -->
   <WhatsAppFloat />
+
+  <script is:inline>
+    (function() {
+      const video = document.getElementById('hero-video');
+      if (video) {
+        // Fade-in when ready
+        if (video.readyState >= 3) {
+          video.classList.add('loaded');
+        } else {
+          video.addEventListener('canplay', () => {
+            video.classList.add('loaded');
+          });
+        }
+
+        // When the video ends or reaches 3 seconds, reset to the starting frame (time = 0) and pause it
+        const stopAndResetVideo = () => {
+          video.currentTime = 0;
+          video.pause();
+        };
+
+        video.addEventListener('ended', stopAndResetVideo);
+        video.addEventListener('timeupdate', () => {
+          if (video.currentTime >= 3) {
+            stopAndResetVideo();
+          }
+        });
+
+        // IntersectionObserver to replay the video when the user scrolls back up to the hero section
+        let hasEscapedView = false;
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              if (hasEscapedView) {
+                hasEscapedView = false;
+                video.currentTime = 0;
+                video.play().catch(err => console.log('Autoplay play blocked or interrupted:', err));
+              }
+            } else {
+              hasEscapedView = true;
+            }
+          });
+        }, {
+          root: null,
+          threshold: 0.05
+        });
+
+        // Observe the hero section parent container
+        const heroSection = video.closest('.hero-section');
+        if (heroSection) {
+          observer.observe(heroSection);
+        }
+      }
+    })();
+  </script>
 </Layout>
 
 <style>
@@ -384,11 +449,37 @@ const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
     min-height: 80vh;
     display: flex;
     align-items: center;
-    background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&q=80');
-    background-size: cover;
-    background-position: center;
     padding-top: var(--spacing-xxl);
     padding-bottom: var(--spacing-xxl);
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-bg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .hero-bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transform: scale(1.05);
+    transition: transform 3.2s cubic-bezier(0.15, 0.85, 0.35, 1), opacity 1.8s ease-out;
+    border-radius: 0px;
+  }
+
+  .hero-bg-video.loaded {
+    opacity: 1;
+    transform: scale(1);
   }
 
   .hero-bg-overlay {
