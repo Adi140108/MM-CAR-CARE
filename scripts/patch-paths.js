@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 const distDir = path.join(process.cwd(), 'dist');
-const basePath = '/MM-CAR-CARE';
+const basePath = process.env.GITHUB_ACTIONS ? '/MM-CAR-CARE' : '';
 
 function walk(dir, callback) {
   fs.readdirSync(dir).forEach(file => {
@@ -16,27 +16,10 @@ function walk(dir, callback) {
   });
 }
 
-const publicAssets = [
-  'logo.png',
-  'about-features.png',
-  'about-signboard.jpg',
-  'ac-service.png',
-  'air-fill-greasing.png',
-  'body-repair.png',
-  'car-image-1.jpeg',
-  'car-image-2.jpeg',
-  'car-image-3.jpeg',
-  'car-service.png',
-  'diagnostics.png',
-  'favicon.ico',
-  'favicon.png',
-  'foam-wash.png',
-  'jump-start.png',
-  'tyre-change.png',
-  'wheel-alignment.png',
-  'wheel-balancing.png',
-  'workshop-video.mp4'
-];
+const publicDir = path.join(process.cwd(), 'public');
+const publicAssets = fs.existsSync(publicDir)
+  ? fs.readdirSync(publicDir).filter(file => fs.statSync(path.join(publicDir, file)).isFile())
+  : [];
 
 if (fs.existsSync(distDir)) {
   walk(distDir, filepath => {
