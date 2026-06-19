@@ -329,23 +329,41 @@ const description = "MM Car Care से संपर्क करें। अ�
     border-color: var(--color-primary);
   }
 
-  /* Date & Time Picker visibility in dark mode */
+  /* Date & Time Picker custom icons and visibility in dark mode */
   .booking-form input[type="date"],
   .booking-form input[type="time"] {
     color-scheme: dark;
+    position: relative;
   }
 
+  .booking-form input[type="date"] {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ffffff' class='bi bi-calendar-event' viewBox='0 0 16 16'><path d='M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z'/><path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+    padding-right: 40px;
+  }
+
+  .booking-form input[type="time"] {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ffffff' class='bi bi-clock' viewBox='0 0 16 16'><path d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z'/><path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+    padding-right: 40px;
+  }
+
+  /* Make the native browser picker indicators transparent but covering the right side so clicking them triggers the picker */
   .booking-form input[type="date"]::-webkit-calendar-picker-indicator,
   .booking-form input[type="time"]::-webkit-calendar-picker-indicator {
-    filter: invert(1);
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
     cursor: pointer;
-    opacity: 0.8;
-    transition: opacity var(--transition-speed);
-  }
-
-  .booking-form input[type="date"]::-webkit-calendar-picker-indicator:hover,
-  .booking-form input[type="time"]::-webkit-calendar-picker-indicator:hover {
-    opacity: 1;
   }
 
   .booking-form textarea {
